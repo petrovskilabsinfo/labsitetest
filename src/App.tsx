@@ -82,50 +82,94 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => scrollToSection('hero')}>
-              {/* Логотип PetrovskiLabs */}
+              {/* Логотип PetrovskiLabs - красивый цветок */}
               <div className="relative">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:scale-110">
-                  {/* Внешнее кольцо */}
-                  <circle cx="20" cy="20" r="18" fill="url(#logoGradient1)" stroke="url(#logoGradient2)" strokeWidth="2" className="animate-pulse"/>
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:scale-110 drop-shadow-lg">
+                  {/* Центральный круг - золотисто-желтый */}
+                  <circle cx="22.5" cy="22.5" r="8" fill="url(#centerGradient)" className="animate-pulse" style={{animationDuration: '3s'}}/>
 
-                  {/* Внутренние элементы */}
-                  <path d="M20 8 L26 14 L20 20 L14 14 Z" fill="url(#logoGradient3)" className="animate-pulse" style={{animationDelay: '0.5s'}}/>
-                  <path d="M20 20 L26 26 L20 32 L14 26 Z" fill="url(#logoGradient4)" className="animate-pulse" style={{animationDelay: '1s'}}/>
+                  {/* Лепестки цветка - радужные градиенты */}
+                  {/* Верхний лепесток */}
+                  <path d="M22.5 8 Q32 8 35 18 Q32 22 22.5 22 Q13 22 10 18 Q13 8 22.5 8 Z" fill="url(#petalGradient1)" className="animate-pulse" style={{animationDelay: '0.2s', animationDuration: '3s'}}/>
 
-                  {/* Центральный элемент */}
-                  <circle cx="20" cy="20" r="4" fill="url(#logoGradient5)" className="animate-pulse" style={{animationDelay: '1.5s'}}/>
+                  {/* Правый лепесток */}
+                  <path d="M37 22.5 Q37 13 27 10 Q23 13 23 22.5 Q23 32 27 35 Q37 32 37 22.5 Z" fill="url(#petalGradient2)" className="animate-pulse" style={{animationDelay: '0.4s', animationDuration: '3s'}}/>
+
+                  {/* Нижний лепесток */}
+                  <path d="M22.5 37 Q13 37 10 27 Q13 23 22.5 23 Q32 23 35 27 Q32 37 22.5 37 Z" fill="url(#petalGradient3)" className="animate-pulse" style={{animationDelay: '0.6s', animationDuration: '3s'}}/>
+
+                  {/* Левый лепесток */}
+                  <path d="M8 22.5 Q8 32 18 35 Q22 32 22 22.5 Q22 13 18 10 Q8 13 8 22.5 Z" fill="url(#petalGradient4)" className="animate-pulse" style={{animationDelay: '0.8s', animationDuration: '3s'}}/>
+
+                  {/* Маленькие акцентные лепестки между основными */}
+                  <path d="M22.5 12 Q27 12 28 17 Q25 19 22.5 19 Q20 19 17 17 Q20 12 22.5 12 Z" fill="url(#accentGradient1)" className="animate-pulse" style={{animationDelay: '1s', animationDuration: '3s'}}/>
+                  <path d="M33 22.5 Q33 18 28 17 Q26 19 26 22.5 Q26 26 28 28 Q33 26 33 22.5 Z" fill="url(#accentGradient2)" className="animate-pulse" style={{animationDelay: '1.2s', animationDuration: '3s'}}/>
+                  <path d="M22.5 33 Q18 33 17 28 Q20 26 22.5 26 Q25 26 28 28 Q25 33 22.5 33 Z" fill="url(#accentGradient3)" className="animate-pulse" style={{animationDelay: '1.4s', animationDuration: '3s'}}/>
+                  <path d="M12 22.5 Q12 27 17 28 Q19 26 19 22.5 Q19 19 17 17 Q12 19 12 22.5 Z" fill="url(#accentGradient4)" className="animate-pulse" style={{animationDelay: '1.6s', animationDuration: '3s'}}/>
 
                   {/* Градиенты */}
                   <defs>
-                    <linearGradient id="logoGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#06b6d4"/>
-                      <stop offset="100%" stopColor="#8b5cf6"/>
+                    {/* Центральный градиент - золотисто-желтый */}
+                    <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#fbbf24"/>
+                      <stop offset="70%" stopColor="#f59e0b"/>
+                      <stop offset="100%" stopColor="#d97706"/>
+                    </radialGradient>
+
+                    {/* Основные лепестки - радужные градиенты */}
+                    <linearGradient id="petalGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ef4444"/>
+                      <stop offset="50%" stopColor="#f97316"/>
+                      <stop offset="100%" stopColor="#eab308"/>
                     </linearGradient>
-                    <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0891b2"/>
-                      <stop offset="100%" stopColor="#7c3aed"/>
+
+                    <linearGradient id="petalGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ec4899"/>
+                      <stop offset="50%" stopColor="#a855f7"/>
+                      <stop offset="100%" stopColor="#6366f1"/>
                     </linearGradient>
-                    <linearGradient id="logoGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#22d3ee"/>
-                      <stop offset="100%" stopColor="#a855f7"/>
+
+                    <linearGradient id="petalGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#10b981"/>
+                      <stop offset="50%" stopColor="#06b6d4"/>
+                      <stop offset="100%" stopColor="#3b82f6"/>
                     </linearGradient>
-                    <linearGradient id="logoGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#06b6d4"/>
-                      <stop offset="100%" stopColor="#8b5cf6"/>
+
+                    <linearGradient id="petalGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#8b5cf6"/>
+                      <stop offset="50%" stopColor="#ec4899"/>
+                      <stop offset="100%" stopColor="#f97316"/>
                     </linearGradient>
-                    <radialGradient id="logoGradient5" cx="50%" cy="50%" r="50%">
+
+                    {/* Акцентные лепестки */}
+                    <linearGradient id="accentGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#fbbf24"/>
                       <stop offset="100%" stopColor="#f59e0b"/>
-                    </radialGradient>
+                    </linearGradient>
+
+                    <linearGradient id="accentGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4"/>
+                      <stop offset="100%" stopColor="#0891b2"/>
+                    </linearGradient>
+
+                    <linearGradient id="accentGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#10b981"/>
+                      <stop offset="100%" stopColor="#059669"/>
+                    </linearGradient>
+
+                    <linearGradient id="accentGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#8b5cf6"/>
+                      <stop offset="100%" stopColor="#7c3aed"/>
+                    </linearGradient>
                   </defs>
                 </svg>
 
                 {/* Светящийся эффект при наведении */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 via-pink-400/30 to-purple-400/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Название компании */}
-              <div className="font-bold text-xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-purple-500 bg-clip-text text-transparent transition-all duration-300 group-hover:from-purple-400 group-hover:to-cyan-400">
+              <div className="font-bold text-xl bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent transition-all duration-300 group-hover:from-pink-400 group-hover:via-purple-400 group-hover:to-cyan-400">
                 PetrovskiLabs
               </div>
             </div>
