@@ -443,9 +443,6 @@ function App() {
               {t.cta.startProject}
               <ArrowRight className="w-5 h-5 ml-2" />
             </a>
-            <button className={`inline-flex items-center px-8 py-4 rounded-lg font-semibold text-lg ${themeClasses.text} border ${isDarkTheme ? 'border-cyan-500/30 hover:border-cyan-500/60 hover:bg-cyan-500/10' : 'border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/10'} transition-all duration-300`}>
-              {t.cta.viewCaseStudies}
-            </button>
           </div>
         </div>
       </section>
