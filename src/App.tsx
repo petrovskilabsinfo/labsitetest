@@ -107,10 +107,11 @@ function App() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
               </button>
               <div className="flex items-center space-x-3">
-                <button className="flex items-center space-x-2 text-sm text-gray-400 hover:text-white transition-colors">
-                  <Globe className="w-4 h-4" />
-                  <span>EN</span>
-                </button>
+                <LanguageSelector
+                  currentLanguage={currentLanguage}
+                  onLanguageChange={setCurrentLanguage}
+                  isDark={isDarkTheme}
+                />
                 <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
               </div>
               <a href="mailto:petrovskilabsinfo@gmail.com" className="px-6 py-2.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25">
