@@ -81,8 +81,53 @@ function App() {
       <nav className={`fixed top-0 w-full ${themeClasses.navBg} backdrop-blur-xl border-b ${themeClasses.navBorder} z-40 transition-all duration-700`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="font-bold text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent">
-              PetrovskiLabs
+            <div className="flex items-center space-x-3 group cursor-pointer" onClick={() => scrollToSection('hero')}>
+              {/* Логотип PetrovskiLabs */}
+              <div className="relative">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:scale-110">
+                  {/* Внешнее кольцо */}
+                  <circle cx="20" cy="20" r="18" fill="url(#logoGradient1)" stroke="url(#logoGradient2)" strokeWidth="2" className="animate-pulse"/>
+
+                  {/* Внутренние элементы */}
+                  <path d="M20 8 L26 14 L20 20 L14 14 Z" fill="url(#logoGradient3)" className="animate-pulse" style={{animationDelay: '0.5s'}}/>
+                  <path d="M20 20 L26 26 L20 32 L14 26 Z" fill="url(#logoGradient4)" className="animate-pulse" style={{animationDelay: '1s'}}/>
+
+                  {/* Центральный элемент */}
+                  <circle cx="20" cy="20" r="4" fill="url(#logoGradient5)" className="animate-pulse" style={{animationDelay: '1.5s'}}/>
+
+                  {/* Градиенты */}
+                  <defs>
+                    <linearGradient id="logoGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4"/>
+                      <stop offset="100%" stopColor="#8b5cf6"/>
+                    </linearGradient>
+                    <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0891b2"/>
+                      <stop offset="100%" stopColor="#7c3aed"/>
+                    </linearGradient>
+                    <linearGradient id="logoGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#22d3ee"/>
+                      <stop offset="100%" stopColor="#a855f7"/>
+                    </linearGradient>
+                    <linearGradient id="logoGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4"/>
+                      <stop offset="100%" stopColor="#8b5cf6"/>
+                    </linearGradient>
+                    <radialGradient id="logoGradient5" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#fbbf24"/>
+                      <stop offset="100%" stopColor="#f59e0b"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+
+                {/* Светящийся эффект при наведении */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+
+              {/* Название компании */}
+              <div className="font-bold text-xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-purple-500 bg-clip-text text-transparent transition-all duration-300 group-hover:from-purple-400 group-hover:to-cyan-400">
+                PetrovskiLabs
+              </div>
             </div>
             <div className="flex items-center space-x-8">
               <button
