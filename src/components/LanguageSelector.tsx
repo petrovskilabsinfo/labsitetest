@@ -1,6 +1,6 @@
 import React from 'react';
 import { Globe } from 'lucide-react';
-import { Language } from '../translations';
+import { Language } from '../petrovskiLabsTranslations';
 
 interface LanguageSelectorProps {
   currentLanguage: Language;
@@ -10,17 +10,17 @@ interface LanguageSelectorProps {
 
 const languages = [
   { code: 'en' as Language, name: 'English', flag: '🇺🇸' },
-  { code: 'fr' as Language, name: 'Français', flag: '🇫🇷' },
+  { code: 'ru' as Language, name: 'Русский', flag: '🇷🇺' },
   { code: 'de' as Language, name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'fr' as Language, name: 'Français', flag: '🇫🇷' },
   { code: 'it' as Language, name: 'Italiano', flag: '🇮🇹' },
   { code: 'es' as Language, name: 'Español', flag: '🇪🇸' },
-  { code: 'ru' as Language, name: 'Русский', flag: '🇷🇺' },
-  { code: 'ja' as Language, name: '日本語', flag: '🇯🇵' },
   { code: 'zh' as Language, name: '中文', flag: '🇨🇳' },
+  { code: 'ja' as Language, name: '日本語', flag: '🇯🇵' },
   { code: 'ar' as Language, name: 'العربية', flag: '🇸🇦' },
+  { code: 'hi' as Language, name: 'हिन्दी', flag: '🇮🇳' },
   { code: 'tr' as Language, name: 'Türkçe', flag: '🇹🇷' },
   { code: 'ko' as Language, name: '한국어', flag: '🇰🇷' },
-  { code: 'hi' as Language, name: 'हिन्दी', flag: '🇮🇳' },
 ];
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({

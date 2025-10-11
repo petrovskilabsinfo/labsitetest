@@ -1,55 +1,23 @@
 import React, { useState } from 'react';
 import { Heart, Coffee, Star } from 'lucide-react';
+import { petrovskiLabsTranslations, Language } from '../petrovskiLabsTranslations';
 
 interface DonationBlockProps {
   isDark: boolean;
-  currentLanguage: string;
+  currentLanguage: Language;
 }
-
-const donationTexts = {
-  en: {
-    title: "Support Our Mission",
-    subtitle: "Your support helps us continue creating innovative solutions and delivering exceptional value to the community.",
-    chooseAmount: "Choose an amount",
-    amounts: ["Buy us a coffee", "Support our work", "Become a sponsor"],
-    customAmountLabel: "or enter custom amount",
-    customAmountPlaceholder: "Custom amount",
-    donateButton: "Donate via PayPal",
-    securePayment: "Secure payment through PayPal",
-    quickDonate: "Quick donate",
-    infoTitle: "Your donation helps us maintain and improve our projects, invest in research & development, and create more value for the community.",
-    infoSubtitle: "Every contribution, no matter the size, makes a difference!",
-    thankYou: "Thank you for your support!",
-    thankYouMessage: "Your contribution helps make our work better for everyone!",
-  },
-  ru: {
-    title: "Поддержите нашу миссию",
-    subtitle: "Ваша поддержка помогает нам создавать инновационные решения и приносить исключительную ценность сообществу.",
-    chooseAmount: "Выберите сумму",
-    amounts: ["Купить нам кофе", "Поддержать нашу работу", "Стать спонсором"],
-    customAmountLabel: "или введите свою сумму",
-    customAmountPlaceholder: "Своя сумма",
-    donateButton: "Поддержать через PayPal",
-    securePayment: "Безопасная оплата через PayPal",
-    quickDonate: "Быстрая поддержка",
-    infoTitle: "Ваша поддержка помогает нам поддерживать и улучшать наши проекты, инвестировать в исследования и разработки и создавать больше ценности для сообщества.",
-    infoSubtitle: "Каждый вклад, независимо от размера, имеет значение!",
-    thankYou: "Спасибо за вашу поддержку!",
-    thankYouMessage: "Ваш вклад помогает сделать нашу работу лучше для всех!",
-  }
-};
 
 export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLanguage }) => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
 
-  const t = donationTexts[currentLanguage as keyof typeof donationTexts] || donationTexts.en;
+  const t = petrovskiLabsTranslations[currentLanguage] || petrovskiLabsTranslations.en;
 
   const predefinedAmounts = [
-    { amount: 5, icon: Coffee, label: t.amounts[0] },
-    { amount: 10, icon: Heart, label: t.amounts[1] },
-    { amount: 25, icon: Star, label: t.amounts[2] }
+    { amount: 5, icon: Coffee, label: t.donation.amounts[0] },
+    { amount: 10, icon: Heart, label: t.donation.amounts[1] },
+    { amount: 25, icon: Star, label: t.donation.amounts[2] }
   ];
 
   const quickDonateAmounts = [5, 10, 25];
@@ -72,10 +40,10 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
           <Heart className="w-16 h-16 mx-auto text-pink-500" />
         </div>
         <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>
-          {t.thankYou}
+          {t.donation.thankYou}
         </h3>
         <p className={isDark ? 'text-gray-300' : 'text-gray-600'}>
-          {t.thankYouMessage}
+          {t.donation.thankYouMessage}
         </p>
       </div>
     );
@@ -91,16 +59,16 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
             </div>
           </div>
           <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>
-            {t.title}
+            {t.donation.title}
           </h2>
           <p className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            {t.subtitle}
+            {t.donation.subtitle}
           </p>
         </div>
 
         <div className={`rounded-3xl p-8 md:p-12 ${isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white/80 border-gray-200'} backdrop-blur-sm border`}>
           <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'} text-center mb-8`}>
-            {t.chooseAmount}
+            {t.donation.chooseAmount}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -138,7 +106,7 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
 
           <div className="text-center mb-6">
             <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'} mb-4`}>
-              {t.customAmountLabel}
+              {t.donation.customAmount}
             </p>
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="relative max-w-xs">
@@ -149,7 +117,7 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
                   type="number"
                   value={customAmount}
                   onChange={(e) => setCustomAmount(e.target.value)}
-                  placeholder={t.customAmountPlaceholder}
+                  placeholder={t.donation.customAmountPlaceholder}
                   className={`w-full pl-10 pr-4 py-3 rounded-xl border-2 ${
                     isDark
                       ? 'bg-gray-800/50 border-gray-700 text-white placeholder-gray-500 focus:border-cyan-500'
@@ -168,16 +136,16 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Heart className="w-5 h-5 mr-2" />
-              {t.donateButton}
+              {t.donation.donateButton}
             </button>
             <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'} mt-3`}>
-              {t.securePayment}
+              {t.donation.securePayment}
             </p>
           </div>
 
           <div className={`pt-6 border-t ${isDark ? 'border-slate-700' : 'border-gray-200'}`}>
             <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} text-center mb-4`}>
-              {t.quickDonate}
+              {t.donation.quickDonate}
             </p>
             <div className="flex justify-center gap-4">
               {quickDonateAmounts.map((amount) => (
@@ -202,10 +170,10 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
               <Star className={`w-5 h-5 mt-1 mr-3 flex-shrink-0 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />
               <div>
                 <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                  {t.infoTitle}
+                  {t.donation.infoTitle}
                 </p>
                 <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  {t.infoSubtitle}
+                  {t.donation.infoSubtitle}
                 </p>
               </div>
             </div>

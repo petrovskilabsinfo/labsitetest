@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Shield, Eye, Palette, Zap, Globe, Heart, Download, Play, ArrowRight, Monitor, Mail, MapPin, Rocket, Code, Lightbulb, Users, TrendingUp, Award } from 'lucide-react';
-import { translations, Language } from './translations';
+import { petrovskiLabsTranslations, Language } from './petrovskiLabsTranslations';
 import { LanguageSelector } from './components/LanguageSelector';
 import { ThemeToggle } from './components/ThemeToggle';
 import { DonationBlock } from './components/DonationBlock';
@@ -10,7 +10,7 @@ function App() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
-  const t = translations[currentLanguage];
+  const t = petrovskiLabsTranslations[currentLanguage];
 
   useEffect(() => {
     setIsVisible(true);
@@ -89,21 +89,21 @@ function App() {
                 onClick={() => scrollToSection('about')}
                 className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
               >
-                About
+                {t.nav.about}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
                 className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
               >
-                Projects
+                {t.nav.projects}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
               >
-                Contact
+                {t.nav.contact}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
               </button>
               <div className="flex items-center space-x-3">
@@ -114,7 +114,7 @@ function App() {
                 <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
               </div>
               <a href="mailto:petrovskilabsinfo@gmail.com" className="px-6 py-2.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25">
-                Start Your Project
+                {t.nav.startProject}
               </a>
             </div>
           </div>
@@ -126,20 +126,20 @@ function App() {
         <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="mb-8">
             <span className={`inline-block px-6 py-2 rounded-full border ${isDarkTheme ? 'border-cyan-500/30 bg-cyan-500/10' : 'border-cyan-600/30 bg-cyan-600/10'} ${themeClasses.text} text-sm font-medium mb-8`}>
-              Innovative Development Studio
+              {t.hero.badge}
             </span>
           </div>
 
           <h1 className={`text-6xl md:text-8xl font-bold ${themeClasses.text} mb-8 leading-tight`}>
-            Building the{' '}
+            {t.hero.title}{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
-              Future
+              {t.hero.titleHighlight}
             </span>{' '}
-            of Digital Products
+            {t.hero.subtitle}
           </h1>
 
           <p className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-12 max-w-5xl mx-auto leading-relaxed`}>
-            We transform innovative ideas into powerful startups and cutting-edge software solutions. From MVP to market leader, we're your technology partner.
+            {t.hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -148,7 +148,7 @@ function App() {
               className="group relative px-10 py-5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-400/25 overflow-hidden inline-flex items-center"
             >
               <span className="relative z-10 flex items-center justify-center">
-                Start Your Project
+                {t.hero.startProject}
                 <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -158,7 +158,7 @@ function App() {
               onClick={() => scrollToSection('projects')}
               className={`group px-10 py-5 rounded-xl font-semibold text-lg ${themeClasses.text} border ${isDarkTheme ? 'border-cyan-500/30 hover:border-cyan-500/60 hover:bg-cyan-500/10' : 'border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/10'} transition-all duration-300 transform hover:scale-105 inline-flex items-center`}
             >
-              View Our Work
+              {t.hero.viewWork}
             </button>
           </div>
         </div>
@@ -175,10 +175,10 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className={`text-5xl md:text-6xl font-bold ${themeClasses.text} mb-8`}>
-              Featured Projects
+              {t.projects.title}
             </h2>
             <p className={`text-xl ${themeClasses.textSecondary} max-w-4xl mx-auto leading-relaxed`}>
-              Explore our portfolio of successful projects that demonstrate our expertise in creating cutting-edge digital solutions.
+              {t.projects.subtitle}
             </p>
           </div>
 
@@ -205,62 +205,62 @@ function App() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-3">
-                    ColorAdapt
+                    {t.projects.colorAdapt.title}
                   </h3>
                   <p className={`text-xl ${themeClasses.textSecondary} mb-6`}>
-                    bring color back to your life
+                    {t.projects.colorAdapt.subtitle}
                   </p>
                   <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
-                    Professional-grade visual filters browser extension that delivers cinematic HDR, OLED colors, and accessibility features for your favorite websites. Created by globally recognized artist Yuri Petrovski with privacy-first design and no data collection.
+                    {t.projects.colorAdapt.description}
                   </p>
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Key Features:</h4>
+                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.features.title}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>HDR & DVision+</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.hdr}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>HDR‑Lite & DVision</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.hdrLite}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>OLED Colors</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.oled}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Tone Balance</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.toneBalance}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Immersive Modes</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.immersive}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Accessibility</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.accessibility}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Petrovski's Movie Stock</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.movieStock}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Technical LUTs</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.technicalLuts}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>PiW & PiP Modes</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.pipPiw}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Technologies:</h4>
+                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Browser Extension', 'HDR Technology', 'Color Science', 'WCAG Compliance'].map((tech, index) => (
+                    {t.projects.colorAdapt.techList.map((tech, index) => (
                       <span key={index} className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-cyan-300' : 'bg-cyan-50 text-cyan-700'} border ${isDarkTheme ? 'border-cyan-500/30' : 'border-cyan-200'}`}>
                         {tech}
                       </span>
@@ -269,24 +269,14 @@ function App() {
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Impact & Results:</h4>
+                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.impact}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Enhanced Visual Experience</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Accessibility Support</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Privacy Protection</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Cross-Browser Compatibility</p>
-                    </div>
+                    {t.projects.colorAdapt.impactList.map((item, index) => (
+                      <div key={index} className="flex items-start space-x-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
+                        <p className={`text-sm ${themeClasses.textSecondary}`}>{item}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -308,11 +298,11 @@ function App() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
                   >
-                    Visit Website
+                    {t.projects.colorAdapt.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
                   <button className={`inline-flex items-center px-6 py-3 rounded-lg font-semibold ${themeClasses.text} border ${isDarkTheme ? 'border-cyan-500/30 hover:border-cyan-500/60 hover:bg-cyan-500/10' : 'border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/10'} transition-all duration-300`}>
-                    Learn More
+                    {t.projects.colorAdapt.learnMore}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </button>
                 </div>
@@ -343,50 +333,50 @@ function App() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-4xl font-bold bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text text-transparent mb-3">
-                    GrayTrigger
+                    {t.projects.grayTrigger.title}
                   </h3>
                   <p className={`text-xl ${themeClasses.textSecondary} mb-6`}>
-                    less screen, more hugs
+                    {t.projects.grayTrigger.subtitle}
                   </p>
                   <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
-                    Revolutionary productivity tool that automatically switches your screen to grayscale mode when you open social media sites like TikTok, Instagram, YouTube, Snapchat, X/Twitter, and Facebook. Helps reduce social media addiction through gentle visual cues — without blocking, without forcing.
+                    {t.projects.grayTrigger.description}
                   </p>
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Key Features:</h4>
+                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.features.title}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Automatic grayscale triggering for social media sites</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.autoGrayscale}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>No blocking or forced restrictions</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.noBlocking}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Cross-platform compatibility</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.crossPlatform}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Gentle approach to digital wellness</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.digitalWellness}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Real-time screen mode switching</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.realTime}</p>
                     </div>
                     <div className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Customizable site targeting</p>
+                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.customizable}</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Technologies:</h4>
+                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Desktop App', 'Browser Extension', 'System Integration', 'Cross-Platform'].map((tech, index) => (
+                    {t.projects.grayTrigger.techList.map((tech, index) => (
                       <span key={index} className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-gray-300' : 'bg-gray-50 text-gray-700'} border ${isDarkTheme ? 'border-gray-500/30' : 'border-gray-200'}`}>
                         {tech}
                       </span>
@@ -395,24 +385,14 @@ function App() {
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Impact & Results:</h4>
+                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.impact}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Reduces Screen Time</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Improves Focus</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>Digital Wellness</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>No Blocking Required</p>
-                    </div>
+                    {t.projects.grayTrigger.impactList.map((item, index) => (
+                      <div key={index} className="flex items-start space-x-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
+                        <p className={`text-sm ${themeClasses.textSecondary}`}>{item}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -434,11 +414,11 @@ function App() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
                   >
-                    Visit Website
+                    {t.projects.grayTrigger.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
                   <button className={`inline-flex items-center px-6 py-3 rounded-lg font-semibold ${themeClasses.text} border ${isDarkTheme ? 'border-gray-500/30 hover:border-gray-500/60 hover:bg-gray-500/10' : 'border-gray-600/30 hover:border-gray-600/60 hover:bg-gray-600/10'} transition-all duration-300`}>
-                    Learn More
+                    {t.projects.grayTrigger.learnMore}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </button>
                 </div>
@@ -452,18 +432,18 @@ function App() {
       <section className={`py-32 px-6 relative z-10`}>
         <div className="max-w-5xl mx-auto text-center">
           <h2 className={`text-5xl md:text-6xl font-bold mb-8 ${themeClasses.text}`}>
-            Ready to Start Your Project?
+            {t.cta.title}
           </h2>
           <p className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-12 max-w-4xl mx-auto`}>
-            Let's discuss how we can help you achieve your goals with innovative technology solutions.
+            {t.cta.subtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a href="mailto:petrovskilabsinfo@gmail.com" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25">
-              Start Your Project
+              {t.cta.startProject}
               <ArrowRight className="w-5 h-5 ml-2" />
             </a>
             <button className={`inline-flex items-center px-8 py-4 rounded-lg font-semibold text-lg ${themeClasses.text} border ${isDarkTheme ? 'border-cyan-500/30 hover:border-cyan-500/60 hover:bg-cyan-500/10' : 'border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/10'} transition-all duration-300`}>
-              View Case Studies
+              {t.cta.viewCaseStudies}
             </button>
           </div>
         </div>
@@ -477,19 +457,19 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${themeClasses.text}`}>
-              Let's Build Together
+              {t.buildTogether.title}
             </h2>
             <p className={`text-xl ${themeClasses.textSecondary} max-w-3xl mx-auto`}>
-              Ready to transform your ideas into reality? Get in touch and let's discuss how we can help you achieve your goals.
+              {t.buildTogether.subtitle}
             </p>
           </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {[
-              { value: '50+', label: 'Projects Delivered', icon: Rocket },
-              { value: '15+', label: 'Startups Launched', icon: TrendingUp },
-              { value: '98%', label: 'Client Satisfaction', icon: Award }
+              { value: t.buildTogether.stats.projects.value, label: t.buildTogether.stats.projects.label, icon: Rocket },
+              { value: t.buildTogether.stats.startups.value, label: t.buildTogether.stats.startups.label, icon: TrendingUp },
+              { value: t.buildTogether.stats.satisfaction.value, label: t.buildTogether.stats.satisfaction.label, icon: Award }
             ].map((stat, index) => (
               <div key={index} className={`p-8 rounded-2xl ${isDarkTheme ? 'bg-slate-900/50 border border-slate-800' : 'bg-white border border-gray-200'} backdrop-blur-sm text-center transform transition-all duration-300 hover:scale-105`}>
                 <stat.icon className={`w-12 h-12 mx-auto mb-4 ${isDarkTheme ? 'text-cyan-400' : 'text-cyan-600'}`} />
@@ -507,14 +487,14 @@ function App() {
           <div className="mb-20">
             <div className="max-w-4xl mx-auto mb-12">
               <h3 className={`text-3xl font-bold mb-6 text-center ${themeClasses.text}`}>
-                About PetrovskiLabs
+                {t.buildTogether.about.title}
               </h3>
               <p className={`text-lg ${themeClasses.textSecondary} mb-6 leading-relaxed text-center`}>
-                We are a forward-thinking development studio specializing in cutting-edge technology solutions. Our team combines technical expertise with creative innovation to deliver exceptional digital products.
+                {t.buildTogether.about.description}
               </p>
               <div className={`p-6 rounded-xl ${isDarkTheme ? 'bg-cyan-500/10 border border-cyan-500/20' : 'bg-cyan-50 border border-cyan-200'} text-center`}>
                 <p className={`text-xl font-semibold ${isDarkTheme ? 'text-cyan-400' : 'text-cyan-700'}`}>
-                  Transforming Ideas into Digital Reality
+                  {t.buildTogether.about.tagline}
                 </p>
               </div>
             </div>
@@ -522,13 +502,13 @@ function App() {
             {/* Expertise Cards */}
             <div className="max-w-4xl mx-auto">
               <h3 className={`text-3xl font-bold mb-8 text-center ${themeClasses.text}`}>
-                Our Expertise
+                {t.buildTogether.expertise.title}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { title: 'Full-Stack Development', desc: 'End-to-end development from concept to deployment', icon: Code },
-                  { title: 'Startup Solutions', desc: 'MVP development and scaling for rapid growth', icon: Rocket },
-                  { title: 'R&D Projects', desc: 'Innovative research and experimental technologies', icon: Lightbulb }
+                  { title: t.buildTogether.expertise.fullstack.title, desc: t.buildTogether.expertise.fullstack.desc, icon: Code },
+                  { title: t.buildTogether.expertise.startup.title, desc: t.buildTogether.expertise.startup.desc, icon: Rocket },
+                  { title: t.buildTogether.expertise.research.title, desc: t.buildTogether.expertise.research.desc, icon: Lightbulb }
                 ].map((item, index) => (
                   <div key={index} className={`p-6 rounded-xl ${isDarkTheme ? 'bg-slate-900/50 border border-slate-800' : 'bg-white border border-gray-200'} backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/50 hover:scale-105`}>
                     <div className="text-center">
@@ -551,10 +531,10 @@ function App() {
           {/* Company Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
             {[
-              { value: '5+', label: 'Years Experience' },
-              { value: '25+', label: 'Team Members' },
-              { value: '12', label: 'Countries Served' },
-              { value: '$99M+', label: 'Funding Raised' }
+              { value: t.buildTogether.companyStats.years.value, label: t.buildTogether.companyStats.years.label },
+              { value: t.buildTogether.companyStats.team.value, label: t.buildTogether.companyStats.team.label },
+              { value: t.buildTogether.companyStats.countries.value, label: t.buildTogether.companyStats.countries.label },
+              { value: t.buildTogether.companyStats.funding.value, label: t.buildTogether.companyStats.funding.label }
             ].map((stat, index) => (
               <div key={index} className={`p-6 rounded-xl text-center ${isDarkTheme ? 'bg-slate-900/30' : 'bg-gray-50'}`}>
                 <div className={`text-3xl font-bold mb-2 ${isDarkTheme ? 'text-cyan-400' : 'text-cyan-600'}`}>
@@ -576,13 +556,13 @@ function App() {
                 </div>
                 <div>
                   <h4 className={`text-2xl font-semibold mb-2 ${themeClasses.text}`}>
-                    Email
+                    {t.contact.email.title}
                   </h4>
                   <a href="mailto:petrovskilabsinfo@gmail.com" className={`text-lg ${isDarkTheme ? 'text-cyan-400 hover:text-cyan-300' : 'text-cyan-600 hover:text-cyan-700'} transition-colors`}>
-                    petrovskilabsinfo@gmail.com
+                    {t.contact.email.address}
                   </a>
                   <p className={`text-sm ${themeClasses.textMuted} mt-2`}>
-                    Send us an email for detailed discussions
+                    {t.contact.email.description}
                   </p>
                 </div>
               </div>
@@ -595,13 +575,13 @@ function App() {
                 </div>
                 <div>
                   <h4 className={`text-2xl font-semibold mb-2 ${themeClasses.text}`}>
-                    Location
+                    {t.contact.location.title}
                   </h4>
                   <p className={`text-lg ${themeClasses.text} font-medium`}>
-                    Remote & Global
+                    {t.contact.location.address}
                   </p>
                   <p className={`text-sm ${themeClasses.textMuted} mt-2`}>
-                    Working with clients worldwide
+                    {t.contact.location.description}
                   </p>
                 </div>
               </div>
@@ -616,10 +596,10 @@ function App() {
           {/* Top Section */}
           <div className="text-center mb-12">
             <h3 className={`text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent`}>
-              PetrovskiLabs
+              {t.footer.title}
             </h3>
             <p className={`${themeClasses.textSecondary} max-w-3xl mx-auto text-lg leading-relaxed`}>
-              Transforming innovative ideas into successful digital products. We're your trusted partner for startup development, custom software solutions, and cutting-edge R&D projects.
+              {t.footer.description}
             </p>
           </div>
 
@@ -627,18 +607,18 @@ function App() {
           <div className={`border-t ${isDarkTheme ? 'border-slate-700' : 'border-cyan-200'} pt-8`}>
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <p className={`${isDarkTheme ? 'text-gray-500' : 'text-gray-600'} text-center md:text-left`}>
-                © 2025 PetrovskiLabs. All rights reserved.
+                {t.footer.copyright}
               </p>
 
               <div className="flex flex-wrap justify-center md:justify-end gap-6">
                 <a href="#" className={`${isDarkTheme ? 'text-gray-400 hover:text-cyan-400' : 'text-gray-600 hover:text-cyan-600'} transition-colors`}>
-                  Privacy Policy
+                  {t.footer.privacy}
                 </a>
                 <a href="#" className={`${isDarkTheme ? 'text-gray-400 hover:text-cyan-400' : 'text-gray-600 hover:text-cyan-600'} transition-colors`}>
-                  Terms of Service
+                  {t.footer.terms}
                 </a>
                 <a href="#" className={`${isDarkTheme ? 'text-gray-400 hover:text-cyan-400' : 'text-gray-600 hover:text-cyan-600'} transition-colors`}>
-                  Cookie Policy
+                  {t.footer.cookies}
                 </a>
               </div>
             </div>
