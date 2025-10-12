@@ -176,12 +176,6 @@ function App() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
 
-            <button
-              onClick={() => scrollToSection('projects')}
-              className={`group px-10 py-5 rounded-xl font-semibold text-lg ${themeClasses.text} border ${isDarkTheme ? 'border-cyan-500/30 hover:border-cyan-500/60 hover:bg-cyan-500/10' : 'border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/10'} transition-all duration-300 transform hover:scale-105 inline-flex items-center`}
-            >
-              {t.hero.viewWork}
-            </button>
           </div>
         </div>
       </section>
