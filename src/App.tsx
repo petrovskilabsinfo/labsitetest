@@ -95,10 +95,6 @@ function App() {
                 isDark={isDarkTheme}
               />
               <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
-
-              <a href="mailto:petrovskilabsinfo@gmail.com" className="px-4 xl:px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25 text-sm xl:text-base">
-                {t.nav.startProject}
-              </a>
             </div>
 
             {/* Mobile Navigation Button */}
