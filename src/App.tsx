@@ -302,16 +302,6 @@ function App() {
                   </div>
                 </div>
 
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/20 shadow-2xl mt-6">
-                  <iframe
-                    src="https://www.youtube.com/embed/G-gXeljiVw0?rel=0&modestbranding=1&showinfo=0"
-                    title="ColorAdapt - Bring color back to your life"
-                    className="absolute inset-0 w-full h-full rounded-2xl"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <a
@@ -414,16 +404,6 @@ function App() {
                   </div>
                 </div>
 
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/20 shadow-2xl mt-6">
-                  <iframe
-                    src="https://www.youtube.com/embed/HS1VI42IFEM?rel=0&modestbranding=1&showinfo=0"
-                    title="GrayTrigger - Help you and your kids stay focused"
-                    className="absolute inset-0 w-full h-full rounded-2xl"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <a
