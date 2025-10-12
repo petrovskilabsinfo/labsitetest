@@ -23,7 +23,7 @@ export const petrovskiLabsTranslations = {
         title: "ColorAdapt",
         subtitle: "bring color back to your life",
         description: "Professional-grade visual filters browser extension that delivers cinematic HDR, OLED colors, and accessibility features for your favorite websites. Created by globally recognized artist Yuri Petrovski with privacy-first design and no data collection.",
-        features: {
+    features: {
           title: "Key Features:",
           hdr: "HDR & DVision+",
           hdrLite: "HDR‑Lite & DVision",
