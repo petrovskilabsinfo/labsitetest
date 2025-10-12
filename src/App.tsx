@@ -123,15 +123,15 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className={`min-h-screen flex items-center justify-center px-6 pt-20 relative z-10`}>
+      <section className={`min-h-screen flex items-center justify-center px-6 pt-16 relative z-10`}>
         <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="mb-8">
-            <span className={`inline-block px-6 py-2 rounded-full border ${isDarkTheme ? 'border-cyan-500/30 bg-cyan-500/10' : 'border-cyan-600/30 bg-cyan-600/10'} ${themeClasses.text} text-sm font-medium mb-8`}>
+          <div className="mb-6">
+            <span className={`inline-block px-6 py-2 rounded-full border ${isDarkTheme ? 'border-cyan-500/30 bg-cyan-500/10' : 'border-cyan-600/30 bg-cyan-600/10'} ${themeClasses.text} text-sm font-medium mb-6`}>
               {t.hero.badge}
             </span>
           </div>
 
-          <h1 className={`text-6xl md:text-8xl font-bold ${themeClasses.text} mb-8 leading-tight`}>
+          <h1 className={`text-6xl md:text-8xl font-bold ${themeClasses.text} mb-6 leading-tight`}>
             {t.hero.title}{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
               {t.hero.titleHighlight}
@@ -139,11 +139,11 @@ function App() {
             {t.hero.subtitle}
           </h1>
 
-          <p className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-12 max-w-5xl mx-auto leading-relaxed`}>
+          <p className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-8 max-w-5xl mx-auto leading-relaxed`}>
             {t.hero.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <a
               href="mailto:petrovskilabsinfo@gmail.com"
               className="group relative px-10 py-5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-400/25 overflow-hidden inline-flex items-center"
@@ -172,24 +172,24 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-32 px-6 relative z-10`}>
+      <section id="projects" className={`py-20 px-6 relative z-10`}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className={`text-5xl md:text-6xl font-bold ${themeClasses.text} mb-8`}>
+          <div className="text-center mb-12">
+            <h2 className={`text-5xl md:text-6xl font-bold ${themeClasses.text} mb-6`}>
               {t.projects.title}
             </h2>
-            <p className={`text-xl ${themeClasses.textSecondary} max-w-4xl mx-auto leading-relaxed`}>
+            <p className={`text-xl ${themeClasses.textSecondary} max-w-4xl mx-auto leading-relaxed mb-8`}>
               {t.projects.subtitle}
             </p>
           </div>
 
           {/* ColorAdapt Project */}
-          <div className={`relative p-8 md:p-12 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-12`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-cyan-500/5 to-blue-500/5' : 'bg-gradient-to-br from-cyan-100/50 to-blue-100/50'}`}></div>
 
-            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-start">
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-start">
               {/* Left side - Video */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/20 shadow-2xl">
                   <iframe
                     src="https://www.youtube.com/embed/G-gXeljiVw0?rel=0&modestbranding=1&showinfo=0"
@@ -203,20 +203,20 @@ function App() {
               </div>
 
               {/* Right side - Content */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div>
-                  <h3 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-3">
+                  <h3 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-2">
                     {t.projects.colorAdapt.title}
                   </h3>
-                  <p className={`text-xl ${themeClasses.textSecondary} mb-6`}>
+                  <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
                     {t.projects.colorAdapt.subtitle}
                   </p>
-                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
+                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-4`}>
                     {t.projects.colorAdapt.description}
                   </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.features.title}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div className="flex items-start space-x-2">
@@ -258,7 +258,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
                     {t.projects.colorAdapt.techList.map((tech, index) => (
@@ -269,7 +269,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.impact}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {t.projects.colorAdapt.impactList.map((item, index) => (
@@ -302,22 +302,18 @@ function App() {
                     {t.projects.colorAdapt.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
-                  <button className={`inline-flex items-center px-6 py-3 rounded-lg font-semibold ${themeClasses.text} border ${isDarkTheme ? 'border-cyan-500/30 hover:border-cyan-500/60 hover:bg-cyan-500/10' : 'border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/10'} transition-all duration-300`}>
-                    {t.projects.colorAdapt.learnMore}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </button>
                 </div>
               </div>
             </div>
           </div>
 
           {/* GrayTrigger Project */}
-          <div className={`relative p-8 md:p-12 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-12`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-gray-500/5 to-slate-500/5' : 'bg-gradient-to-br from-gray-100/50 to-slate-100/50'}`}></div>
 
-            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-start">
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-start">
               {/* Left side - Video */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/20 shadow-2xl">
                   <iframe
                     src="https://www.youtube.com/embed/HS1VI42IFEM?rel=0&modestbranding=1&showinfo=0"
@@ -331,20 +327,20 @@ function App() {
               </div>
 
               {/* Right side - Content */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div>
-                  <h3 className="text-4xl font-bold bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text text-transparent mb-3">
+                  <h3 className="text-4xl font-bold bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text text-transparent mb-2">
                     {t.projects.grayTrigger.title}
                   </h3>
-                  <p className={`text-xl ${themeClasses.textSecondary} mb-6`}>
+                  <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
                     {t.projects.grayTrigger.subtitle}
                   </p>
-                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
+                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-4`}>
                     {t.projects.grayTrigger.description}
                   </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.features.title}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div className="flex items-start space-x-2">
@@ -374,7 +370,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
                     {t.projects.grayTrigger.techList.map((tech, index) => (
@@ -385,7 +381,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.impact}</h4>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {t.projects.grayTrigger.impactList.map((item, index) => (
@@ -418,10 +414,6 @@ function App() {
                     {t.projects.grayTrigger.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
-                  <button className={`inline-flex items-center px-6 py-3 rounded-lg font-semibold ${themeClasses.text} border ${isDarkTheme ? 'border-gray-500/30 hover:border-gray-500/60 hover:bg-gray-500/10' : 'border-gray-600/30 hover:border-gray-600/60 hover:bg-gray-600/10'} transition-all duration-300`}>
-                    {t.projects.grayTrigger.learnMore}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -430,12 +422,12 @@ function App() {
       </section>
 
       {/* Call to Action Section */}
-      <section className={`py-32 px-6 relative z-10`}>
+      <section className={`py-20 px-6 relative z-10`}>
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className={`text-5xl md:text-6xl font-bold mb-8 ${themeClasses.text}`}>
+          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${themeClasses.text}`}>
             {t.cta.title}
           </h2>
-          <p className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-12 max-w-4xl mx-auto`}>
+          <p className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-8 max-w-4xl mx-auto`}>
             {t.cta.subtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-6">
