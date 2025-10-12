@@ -146,8 +146,8 @@ function App() {
       {/* Hero Section */}
       <section className={`min-h-screen flex items-center justify-center px-6 pt-16 relative z-10`}>
         <div className={`max-w-6xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="mb-6">
-            <span className={`inline-block px-6 py-2 rounded-full border ${isDarkTheme ? 'border-cyan-500/30 bg-cyan-500/10' : 'border-cyan-600/30 bg-cyan-600/10'} ${themeClasses.text} text-sm font-medium mb-6`}>
+          <div className="mb-4 sm:mb-6">
+            <span className={`inline-block px-4 py-2 sm:px-6 sm:py-2 rounded-full border ${isDarkTheme ? 'border-cyan-500/30 bg-cyan-500/10' : 'border-cyan-600/30 bg-cyan-600/10'} ${themeClasses.text} text-xs sm:text-sm font-medium mb-4 sm:mb-6`}>
               {t.hero.badge}
             </span>
           </div>
