@@ -1,47 +1,13 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  {/* Фон */}
+  <rect width="32" height="32" rx="6" fill="#1f2937"/>
+
   {/* Центральный круг - золотисто-желтый */}
-  <circle cx="16" cy="16" r="6" fill="url(#centerGradient)" className="animate-pulse"/>
+  <circle cx="16" cy="16" r="8" fill="#fbbf24"/>
 
-  {/* Лепестки цветка - радужные градиенты */}
-  {/* Верхний лепесток */}
-  <path d="M16 6 Q22 6 24 12 Q22 14 16 14 Q10 14 8 12 Q10 6 16 6 Z" fill="url(#petalGradient1)"/>
+  {/* Внутренний круг - оранжевый */}
+  <circle cx="16" cy="16" r="4" fill="#f59e0b"/>
 
-  {/* Правый лепесток */}
-  <path d="M26 16 Q26 10 20 8 Q18 10 18 16 Q18 22 20 24 Q26 22 26 16 Z" fill="url(#petalGradient2)"/>
-
-  {/* Нижний лепесток */}
-  <path d="M16 26 Q10 26 8 20 Q10 18 16 18 Q22 18 24 20 Q22 26 16 26 Z" fill="url(#petalGradient3)"/>
-
-  {/* Левый лепесток */}
-  <path d="M6 16 Q6 22 12 24 Q14 22 14 16 Q14 10 12 8 Q6 10 6 16 Z" fill="url(#petalGradient4)"/>
-
-  {/* Градиенты */}
-  <defs>
-    {/* Центральный градиент - золотисто-желтый */}
-    <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stopColor="#fbbf24"/>
-      <stop offset="100%" stopColor="#f59e0b"/>
-    </radialGradient>
-
-    {/* Основные лепестки - радужные градиенты */}
-    <linearGradient id="petalGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#ef4444"/>
-      <stop offset="100%" stopColor="#eab308"/>
-    </linearGradient>
-
-    <linearGradient id="petalGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#ec4899"/>
-      <stop offset="100%" stopColor="#6366f1"/>
-    </linearGradient>
-
-    <linearGradient id="petalGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#10b981"/>
-      <stop offset="100%" stopColor="#3b82f6"/>
-    </linearGradient>
-
-    <linearGradient id="petalGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#8b5cf6"/>
-      <stop offset="100%" stopColor="#f97316"/>
-    </linearGradient>
-  </defs>
+  {/* Буква P - синяя */}
+  <path d="M10 12 L10 20 L12 20 L12 16 L14 16 L14 14 L12 14 L12 12 L10 12 Z M14 12 L16 12 L16 14 L14 14 L14 12 Z" fill="#3b82f6"/>
 </svg>
