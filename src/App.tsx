@@ -79,12 +79,15 @@ function App() {
 
       {/* Navigation */}
       <nav className={`fixed top-0 w-full ${themeClasses.navBg} backdrop-blur-xl border-b ${themeClasses.navBorder} z-40 transition-all duration-700`}>
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="font-bold text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent cursor-pointer" onClick={() => scrollToSection('hero')}>
+            {/* Logo */}
+            <div className="font-bold text-xl sm:text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent cursor-pointer" onClick={() => scrollToSection('hero')}>
               PetrovskiLabs
             </div>
-            <div className="flex items-center space-x-8">
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <button
                 onClick={() => scrollToSection('about')}
                 className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
@@ -106,7 +109,9 @@ function App() {
                 {t.nav.contact}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
               </button>
-              <div className="flex items-center space-x-3">
+
+              {/* Controls */}
+              <div className="flex items-center space-x-2 xl:space-x-3">
                 <LanguageSelector
                   currentLanguage={currentLanguage}
                   onLanguageChange={setCurrentLanguage}
@@ -114,9 +119,25 @@ function App() {
                 />
                 <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
               </div>
-              <a href="mailto:petrovskilabsinfo@gmail.com" className="px-6 py-2.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25">
+
+              <a href="mailto:petrovskilabsinfo@gmail.com" className="px-4 xl:px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25 text-sm xl:text-base">
                 {t.nav.startProject}
               </a>
+            </div>
+
+            {/* Mobile Navigation Button */}
+            <div className="lg:hidden flex items-center space-x-2">
+              <LanguageSelector
+                currentLanguage={currentLanguage}
+                onLanguageChange={setCurrentLanguage}
+                isDark={isDarkTheme}
+              />
+              <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
+              <button className="p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors">
+                <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
