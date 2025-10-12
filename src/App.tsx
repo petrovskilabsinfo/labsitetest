@@ -172,7 +172,7 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-20 px-6 relative z-10`}>
+      <section id="projects" className={`py-10 px-6 relative z-10`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className={`text-5xl md:text-6xl font-bold ${themeClasses.text} mb-6`}>
