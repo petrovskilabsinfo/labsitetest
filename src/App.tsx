@@ -87,38 +87,14 @@ function App() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-              <button
-                onClick={() => scrollToSection('about')}
-                className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
-              >
-                {t.nav.about}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
-              >
-                {t.nav.projects}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
-              >
-                {t.nav.contact}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
-
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
               {/* Controls */}
-              <div className="flex items-center space-x-2 xl:space-x-3">
-                <LanguageSelector
-                  currentLanguage={currentLanguage}
-                  onLanguageChange={setCurrentLanguage}
-                  isDark={isDarkTheme}
-                />
-                <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
-              </div>
+              <LanguageSelector
+                currentLanguage={currentLanguage}
+                onLanguageChange={setCurrentLanguage}
+                isDark={isDarkTheme}
+              />
+              <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
 
               <a href="mailto:petrovskilabsinfo@gmail.com" className="px-4 xl:px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25 text-sm xl:text-base">
                 {t.nav.startProject}
