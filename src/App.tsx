@@ -84,28 +84,30 @@ function App() {
             <div className="font-bold text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent cursor-pointer" onClick={() => scrollToSection('hero')}>
               PetrovskiLabs
             </div>
-            <div className="flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection('about')}
-                className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
-              >
-                {t.nav.about}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
-              >
-                {t.nav.projects}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
-              >
-                {t.nav.contact}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </button>
+            <div className="flex items-center justify-between w-full max-w-md">
+              <div className="flex items-center space-x-6">
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
+                >
+                  {t.nav.about}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+                </button>
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
+                >
+                  {t.nav.projects}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+                </button>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className={`${themeClasses.textSecondary} hover:text-cyan-400 transition-all duration-300 font-medium relative group`}
+                >
+                  {t.nav.contact}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-500 group-hover:w-full transition-all duration-300"></span>
+                </button>
+              </div>
               <div className="flex items-center space-x-3">
                 <LanguageSelector
                   currentLanguage={currentLanguage}
@@ -113,10 +115,10 @@ function App() {
                   isDark={isDarkTheme}
                 />
                 <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
+                <a href="mailto:petrovskilabsinfo@gmail.com" className="px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25 text-sm">
+                  {t.nav.startProject}
+                </a>
               </div>
-              <a href="mailto:petrovskilabsinfo@gmail.com" className="px-6 py-2.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25">
-                {t.nav.startProject}
-              </a>
             </div>
           </div>
         </div>
