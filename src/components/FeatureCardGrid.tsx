@@ -95,16 +95,25 @@ const variantConfig: Record<NonNullable<FeatureCardGridProps['variant']>, {
   gradient: string;
   border: string;
   overlay: string;
+  lightGradient: string;
+  lightBorder: string;
+  lightOverlay: string;
 }> = {
   colorAdapt: {
     gradient: 'from-[#141b31] via-[#0c1122] to-[#070a18]',
     border: 'border-[#4f64f4]/30',
-    overlay: 'bg-[radial-gradient(circle_at_top,_rgba(88,113,255,0.22),_transparent_65%)]'
+    overlay: 'bg-[radial-gradient(circle_at_top,_rgba(88,113,255,0.22),_transparent_65%)]',
+    lightGradient: 'from-white via-[#eef1ff] to-white',
+    lightBorder: 'border-[#cfd7ff]/80',
+    lightOverlay: 'bg-[radial-gradient(circle_at_top,_rgba(103,80,235,0.18),_transparent_65%)]'
   },
   grayTrigger: {
     gradient: 'from-[#1a1a26] via-[#0f111b] to-[#07070e]',
     border: 'border-[#646b86]/30',
-    overlay: 'bg-[radial-gradient(circle_at_top,_rgba(138,146,173,0.2),_transparent_60%)]'
+    overlay: 'bg-[radial-gradient(circle_at_top,_rgba(138,146,173,0.2),_transparent_60%)]',
+    lightGradient: 'from-white via-[#f5f6fb] to-white',
+    lightBorder: 'border-[#d5dae9]',
+    lightOverlay: 'bg-[radial-gradient(circle_at_top,_rgba(156,163,175,0.18),_transparent_60%)]'
   }
 };
 
@@ -113,13 +122,23 @@ export const FeatureCardGrid: React.FC<FeatureCardGridProps> = ({ cards, isDark,
 
   const fallbackIcon = Sparkles;
   const variantStyles = variantConfig[variant];
+  const containerBorder = isDark ? variantStyles.border : variantStyles.lightBorder;
+  const containerGradient = isDark ? variantStyles.gradient : variantStyles.lightGradient;
+  const containerOverlay = isDark ? variantStyles.overlay : variantStyles.lightOverlay;
+  const innerOverlay = isDark
+    ? 'bg-[radial-gradient(circle_at_bottom,_rgba(255,255,255,0.04),_transparent_70%)]'
+    : 'bg-[radial-gradient(circle_at_bottom,_rgba(124,106,255,0.08),_transparent_70%)]';
+  const cardSurface = isDark
+    ? 'border-white/5 bg-white/5 shadow-[0_20px_60px_rgba(5,6,17,0.4)]'
+    : 'border-purple-100/70 bg-white/95 shadow-[0_25px_70px_rgba(136,107,246,0.25)]';
+  const cardTitle = isDark ? 'text-white' : 'text-slate-900';
 
   return (
     <div className="relative">
       <div
-        className={`relative overflow-hidden rounded-[30px] border ${variantStyles.border} bg-gradient-to-br ${variantStyles.gradient} p-5 md:p-6`}>
-        <div className={`pointer-events-none absolute inset-0 rounded-[30px] ${variantStyles.overlay}`} />
-        <div className="pointer-events-none absolute inset-0 rounded-[30px] bg-[radial-gradient(circle_at_bottom,_rgba(255,255,255,0.04),_transparent_70%)]" />
+        className={`relative overflow-hidden rounded-[30px] border ${containerBorder} bg-gradient-to-br ${containerGradient} p-5 md:p-6`}>
+        <div className={`pointer-events-none absolute inset-0 rounded-[30px] ${containerOverlay}`} />
+        <div className={`pointer-events-none absolute inset-0 rounded-[30px] ${innerOverlay}`} />
         <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => {
             const Icon = (card.icon && iconMap[card.icon]) || fallbackIcon;
@@ -129,14 +148,14 @@ export const FeatureCardGrid: React.FC<FeatureCardGridProps> = ({ cards, isDark,
             return (
               <div
                 key={`${card.title}-${index}`}
-                className={`relative rounded-[26px] border border-white/5 bg-white/5 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/30 ${accent.glow}`}
+                className={`relative rounded-[26px] border p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${cardSurface} ${isDark ? 'hover:border-white/30' : 'hover:border-purple-200'} ${accent.glow}`}
               >
                 <div className="flex items-start gap-4">
                   <div className={`w-14 h-14 aspect-square flex-shrink-0 rounded-[18px] bg-gradient-to-br ${accent.iconBg} flex items-center justify-center text-white shadow-inner shadow-black/10`}>
                     <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h5 className="text-lg font-semibold text-white mb-1">{card.title}</h5>
+                    <h5 className={`text-lg font-semibold mb-1 ${cardTitle}`}>{card.title}</h5>
                     <p className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-600'} leading-relaxed`}>
                       {card.description}
                     </p>

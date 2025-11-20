@@ -55,8 +55,35 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
   const [showThankYou, setShowThankYou] = useState(false);
 
   const t = petrovskiLabsTranslations[currentLanguage] || petrovskiLabsTranslations.en;
-  const sceneBackground = isDark ? 'transparent' : 'transparent';
-  const gratitudeBackground = isDark ? '#030611' : '#101943';
+  const sceneBackground = 'transparent';
+  const gratitudeBackground = isDark ? '#030611' : '#f6edff';
+  const heroBadgeBg = isDark ? 'bg-[#080c1d]' : 'bg-white';
+  const heroTitleGradient = isDark ? 'from-white via-pink-100 to-purple-200' : 'from-purple-900 via-pink-600 to-indigo-500';
+  const heroSubtitle = isDark ? 'text-slate-200/80' : 'text-slate-600';
+  const panelStyles = isDark
+    ? 'border border-[#6f4bd8]/20 bg-[#070d1f]/85 shadow-[0_45px_140px_rgba(2,4,12,0.9)]'
+    : 'border border-purple-100 bg-white/95 shadow-[0_45px_120px_rgba(157,140,255,0.35)]';
+  const panelOverlayTop = isDark
+    ? 'bg-[radial-gradient(circle_at_top,_rgba(255,99,214,0.12),_transparent_55%)]'
+    : 'bg-[radial-gradient(circle_at_top,_rgba(224,199,255,0.6),_transparent_60%)]';
+  const panelOverlayBottom = isDark
+    ? 'bg-[radial-gradient(circle_at_bottom,_rgba(89,122,255,0.12),_transparent_50%)]'
+    : 'bg-[radial-gradient(circle_at_bottom,_rgba(190,219,255,0.5),_transparent_55%)]';
+  const infoTitleClass = isDark ? 'text-white/90' : 'text-slate-900';
+  const infoSubtitleClass = isDark ? 'text-slate-300/80' : 'text-slate-500';
+  const presetCardBase = isDark
+    ? 'border border-[#6f4bd8]/40 bg-[#0b1020]/80 hover:bg-[#101833] text-slate-200'
+    : 'border border-purple-100/80 bg-white hover:bg-purple-50 text-slate-600 shadow-[0_18px_45px_rgba(166,146,255,0.25)]';
+  const amountText = isDark ? 'text-white' : 'text-slate-900';
+  const presetLabel = isDark ? 'text-slate-300/80' : 'text-slate-500';
+  const labelClass = isDark ? 'text-slate-300/60' : 'text-slate-500';
+  const inputShell = isDark ? 'bg-[#080f22]/95' : 'bg-white';
+  const currencyColor = isDark ? 'text-white/70' : 'text-slate-500';
+  const heartColor = isDark ? 'text-white/40' : 'text-slate-400';
+  const inputText = isDark ? 'text-white placeholder-white/40' : 'text-slate-900 placeholder-slate-400';
+  const secureChip = isDark
+    ? 'border border-[#2b3245] text-slate-200 bg-[#0f162c]/80'
+    : 'border border-purple-100 text-slate-600 bg-white/85 shadow-sm';
 
   const predefinedAmounts: DonationPreset[] = [
     { amount: 3, icon: Coffee, label: t.donation.amounts[0], color: 'orange' },
@@ -119,29 +146,29 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
       <div className="relative max-w-5xl mx-auto">
         <div className="text-center space-y-5 mb-12">
           <div className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-purple-600/80 p-1.5 shadow-[0_15px_35px_rgba(255,85,170,0.45)]">
-            <div className="w-16 h-16 rounded-full bg-[#080c1d] flex items-center justify-center">
+            <div className={`w-16 h-16 rounded-full ${heroBadgeBg} flex items-center justify-center`}>
               <Heart className="w-7 h-7 text-white" />
             </div>
           </div>
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-pink-200/70 mb-3">{t.donation.quickDonate}</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 bg-gradient-to-r from-white via-pink-100 to-purple-200 bg-clip-text text-transparent">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r ${heroTitleGradient} bg-clip-text text-transparent`}>
               {t.donation.title}
             </h2>
-            <p className="text-lg text-slate-200/80 max-w-3xl mx-auto leading-relaxed">
+            <p className={`text-lg max-w-3xl mx-auto leading-relaxed ${heroSubtitle}`}>
               {t.donation.subtitle}
             </p>
           </div>
         </div>
 
-        <div className="relative rounded-[36px] p-8 md:p-12 backdrop-blur-3xl border border-[#6f4bd8]/20 bg-[#070d1f]/85 shadow-[0_45px_140px_rgba(2,4,12,0.9)] overflow-hidden">
-          <div className="absolute inset-x-6 inset-y-0 bg-[radial-gradient(circle_at_top,_rgba(255,99,214,0.12),_transparent_55%)] pointer-events-none" />
-          <div className="absolute inset-x-0 inset-y-0 bg-[radial-gradient(circle_at_bottom,_rgba(89,122,255,0.12),_transparent_50%)] pointer-events-none" />
+        <div className={`relative rounded-[36px] p-8 md:p-12 backdrop-blur-3xl overflow-hidden ${panelStyles}`}>
+          <div className={`absolute inset-x-6 inset-y-0 ${panelOverlayTop} pointer-events-none`} />
+          <div className={`absolute inset-x-0 inset-y-0 ${panelOverlayBottom} pointer-events-none`} />
           <div className="relative text-center space-y-3 mb-10">
-            <p className="text-xl text-white/90 font-semibold">
+            <p className={`text-xl font-semibold ${infoTitleClass}`}>
               {t.donation.infoTitle}
             </p>
-            <p className="text-base text-slate-300/80">
+            <p className={`text-base ${infoSubtitleClass}`}>
               {t.donation.infoSubtitle}
             </p>
           </div>
@@ -161,16 +188,16 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
                     }
                     handleDonate(item.amount as number);
                   }}
-                  className={`relative p-6 rounded-[28px] border border-[#6f4bd8]/40 bg-[#0b1020]/80/80 hover:bg-[#101833] transition-all duration-300 transform hover:-translate-y-1 group ${palette.borderGlow}`}
+                  className={`relative p-6 rounded-[28px] transition-all duration-300 transform hover:-translate-y-1 group ${presetCardBase} ${isDark ? palette.borderGlow : ''}`}
                 >
                   <div className="flex flex-col items-center text-center">
                     <div className={`w-14 h-14 rounded-2xl mb-4 flex items-center justify-center ${palette.iconBg} group-hover:scale-110 transition-transform duration-300 ${palette.iconShadow}`}>
-                      <item.icon className={`w-6 h-6 ${palette.iconColor}`} />
+                      <item.icon className="w-6 h-6" />
                     </div>
-                    <div className="text-2xl font-bold text-white mb-1">
+                    <div className={`text-2xl font-bold mb-1 ${amountText}`}>
                       {item.amount === 'custom' ? '—' : `$${item.amount}`}
                     </div>
-                    <div className="text-sm text-slate-300/80 leading-tight">
+                    <div className={`text-sm leading-tight ${presetLabel}`}>
                       {item.label}
                     </div>
                   </div>
@@ -181,14 +208,14 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
 
           <div className="relative text-center space-y-6">
             <div className="flex flex-col items-center gap-3">
-              <label htmlFor="customDonation" className="text-sm uppercase tracking-[0.4em] text-slate-300/60">
+              <label htmlFor="customDonation" className={`text-sm uppercase tracking-[0.4em] ${labelClass}`}>
                 {t.donation.customAmount}
               </label>
               <div className="w-full max-w-sm">
                 <div className="rounded-2xl p-[1px] bg-gradient-to-r from-pink-500/80 via-purple-500/80 to-blue-500/80">
-                  <div className="relative rounded-[18px] bg-[#080f22]/95">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-white/70">$</span>
-                    <Heart className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                  <div className={`relative rounded-[18px] ${inputShell}`}>
+                    <span className={`absolute left-4 top-1/2 -translate-y-1/2 text-lg ${currencyColor}`}>$</span>
+                    <Heart className={`absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 ${heartColor}`} />
                     <input
                       id="customDonation"
                       data-donation-input="true"
@@ -196,7 +223,7 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
                       value={customAmount}
                       onChange={(e) => setCustomAmount(e.target.value)}
                       placeholder={t.donation.customAmountPlaceholder}
-                      className="w-full bg-transparent pl-10 pr-10 py-3 rounded-[18px] text-white placeholder-white/40 focus:outline-none"
+                      className={`w-full bg-transparent pl-10 pr-10 py-3 rounded-[18px] focus:outline-none ${inputText}`}
                       min="1"
                       step="1"
                     />
@@ -213,8 +240,8 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
               {t.donation.donateButton}
             </button>
 
-            <div className="pt-6 flex items-center justify-center border-t border-white/10">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#2b3245] px-5 py-2 text-sm text-slate-200 bg-[#0f162c]/80">
+            <div className={`pt-6 flex items-center justify-center border-t ${isDark ? 'border-white/10' : 'border-purple-100/80'}`}>
+              <div className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm ${secureChip}`}>
                 <Zap className="w-4 h-4 text-pink-300" />
                 {t.donation.securePayment}
               </div>
