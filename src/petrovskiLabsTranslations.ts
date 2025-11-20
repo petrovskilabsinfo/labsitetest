@@ -115,6 +115,41 @@ export const petrovskiLabsTranslations = {
       terms: "Terms of Service",
       cookies: "Cookie Policy"
     },
+    privacyPolicy: {
+      badge: "Privacy by Design",
+      title: "Privacy-first engineering for every product we ship",
+      subtitle: "Your IP, datasets, and customer data stay protected with local-first workflows, zero tracking, and encrypted infrastructure.",
+      highlights: [
+        {
+          icon: 'Shield',
+          title: "Zero tracking or reselling",
+          description: "We never embed advertising beacons or sell behavioral data. Your work stays yours."
+        },
+        {
+          icon: 'Eye',
+          title: "Transparent permissions",
+          description: "Only the minimal access required for delivery. Full audit trails and NDAs on request."
+        },
+        {
+          icon: 'Zap',
+          title: "Encrypted delivery",
+          description: "Source code, builds, and research assets move through end-to-end encrypted channels."
+        },
+        {
+          icon: 'Globe',
+          title: "Global compliance",
+          description: "Aligned with GDPR, SOC 2, and enterprise procurement requirements across regions."
+        }
+      ],
+      compliance: {
+        title: "We commit to",
+        items: [
+          "Signed NDAs & data processing agreements",
+          "GDPR/CCPA-ready delivery pipelines",
+          "Security reviews for enterprise teams"
+        ]
+      }
+    },
     donation: {
       title: "Support Our Mission",
       subtitle: "Your support helps us continue creating innovative solutions and delivering exceptional value to the community.",
@@ -246,6 +281,41 @@ export const petrovskiLabsTranslations = {
       privacy: "Политика конфиденциальности",
       terms: "Условия использования",
       cookies: "Политика cookies"
+    },
+    privacyPolicy: {
+      badge: "Приватность по умолчанию",
+      title: "Проекты с приоритетом безопасности данных",
+      subtitle: "Ваша интеллектуальная собственность и пользовательские данные остаются под контролем благодаря локальным процессам, нулевому трекингу и сквозному шифрованию.",
+      highlights: [
+        {
+          icon: 'Shield',
+          title: "Без трекеров и продажи данных",
+          description: "Не встраиваем рекламные пиксели и не перепродаём поведенческую информацию. Всё остаётся у вас."
+        },
+        {
+          icon: 'Eye',
+          title: "Прозрачные доступы",
+          description: "Запрашиваем только минимальные права. Готовы подписывать NDA и предоставлять отчётность."
+        },
+        {
+          icon: 'Zap',
+          title: "Шифрованные поставки",
+          description: "Исходники, сборки и исследования передаются по end-to-end шифрованным каналам."
+        },
+        {
+          icon: 'Globe',
+          title: "Соответствие стандартам",
+          description: "Работаем в соответствии с требованиями GDPR, SOC 2 и корпоративного комплаенса по всему миру."
+        }
+      ],
+      compliance: {
+        title: "Мы гарантируем",
+        items: [
+          "Подписанные NDA и DPA",
+          "Процессы, готовые к GDPR/CCPA",
+          "Безопасные ревью и поставки для enterprise-клиентов"
+        ]
+      }
     },
     donation: {
       title: "Поддержите нашу миссию",

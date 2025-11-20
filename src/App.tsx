@@ -4,6 +4,7 @@ import { petrovskiLabsTranslations, Language } from './petrovskiLabsTranslations
 import { LanguageSelector } from './components/LanguageSelector';
 import { ThemeToggle } from './components/ThemeToggle';
 import { DonationBlock } from './components/DonationBlock';
+import { PrivacyPolicySection } from './components/PrivacyPolicySection';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -405,6 +406,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Privacy Policy Section */}
+      <PrivacyPolicySection isDark={isDarkTheme} currentLanguage={currentLanguage} />
 
       {/* Donation Section */}
       <DonationBlock isDark={isDarkTheme} currentLanguage={currentLanguage} />
