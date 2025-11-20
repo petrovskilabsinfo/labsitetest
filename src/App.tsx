@@ -87,7 +87,7 @@ function App() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-5">
               {/* Controls */}
               <LanguageSelector
                 currentLanguage={currentLanguage}
@@ -95,6 +95,15 @@ function App() {
                 isDark={isDarkTheme}
               />
               <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
+
+              {/* Privacy Policy link */}
+              <button
+                type="button"
+                onClick={() => scrollToSection('privacy')}
+                className={`text-sm font-medium ${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors duration-200`}
+              >
+                Privacy Policy
+              </button>
             </div>
 
             {/* Mobile Navigation Button */}
@@ -149,6 +158,14 @@ function App() {
             </a>
 
           </div>
+          <button
+            type="button"
+            onClick={() => scrollToSection('projects')}
+            className={`mt-4 mx-auto flex items-center gap-2 text-sm md:text-base ${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors duration-200`}
+          >
+            <span>Learn More</span>
+            <ChevronDown className="w-4 h-4" />
+          </button>
         </div>
       </section>
 
@@ -160,7 +177,7 @@ function App() {
 
       {/* Projects Section */}
       <section id="projects" className={`py-10 px-6 relative z-10`}>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className={`text-5xl md:text-6xl font-bold ${themeClasses.text} mb-6`}>
               {t.projects.title}
@@ -171,7 +188,7 @@ function App() {
           </div>
 
           {/* ColorAdapt Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-3xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-cyan-500/5 to-blue-500/5' : 'bg-gradient-to-br from-cyan-100/50 to-blue-100/50'}`}></div>
 
             <div className="relative z-10">
@@ -223,7 +240,7 @@ function App() {
           </div>
 
           {/* GrayTrigger Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-3xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-gray-500/5 to-slate-500/5' : 'bg-gradient-to-br from-gray-100/50 to-slate-100/50'}`}></div>
 
             <div className="relative z-10">
@@ -275,7 +292,7 @@ function App() {
           </div>
 
           {/* MusicAdapt Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-3xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-indigo-500/5 to-purple-500/5' : 'bg-gradient-to-br from-indigo-100/50 to-purple-100/50'}`}></div>
 
             <div className="relative z-10">
@@ -359,7 +376,7 @@ function App() {
           </div>
 
           {/* MatrixRain Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mx-auto max-w-3xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-emerald-500/5 to-slate-900/40' : 'bg-gradient-to-br from-emerald-100/50 to-gray-900/10'}`}></div>
 
             <div className="relative z-10">
@@ -440,7 +457,7 @@ function App() {
           </div>
 
           {/* Privacy Policy Block */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mt-6`}>
+          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mt-6 mx-auto max-w-3xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-slate-800/80 via-emerald-500/5 to-slate-900/80' : 'bg-gradient-to-br from-gray-50 via-emerald-50/40 to-gray-100'}`}></div>
 
             <div className="relative z-10">
