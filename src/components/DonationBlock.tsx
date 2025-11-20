@@ -8,9 +8,9 @@ interface DonationBlockProps {
 
 const donationTexts = {
   en: {
-    title: "Support PetrovskiLabs Development",
+    title: "Support ColorAdapt Development",
     subtitle: "Help us bring better visual comfort to everyone",
-    description: "Your support helps us create new privacy‑first, accessibility‑focused tools at PetrovskiLabs.",
+    description: "Your support helps us continue developing ColorAdapt and adding new features for visual accessibility.",
     amounts: ["Buy me a coffee", "Support development", "Premium support", "Custom amount"],
     thankYou: "Thank you for your support! 💜",
     thankYouMessage: "Your contribution helps make ColorAdapt better for everyone!",
@@ -183,8 +183,7 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
 
   if (showThankYou) {
     return (
-      <div className="px-4 py-10">
-        <div className={`relative max-w-3xl mx-auto p-6 sm:p-8 lg:p-10 rounded-3xl ${themeClasses.background} border ${themeClasses.border} backdrop-blur-sm text-center`}>
+      <div className={`relative p-8 rounded-3xl ${themeClasses.background} border ${themeClasses.border} backdrop-blur-sm text-center`}>
         <div className="animate-bounce mb-4">
           <Heart className="w-16 h-16 mx-auto text-pink-500" />
         </div>
@@ -194,115 +193,112 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
         <p className={themeClasses.textSecondary}>
           {t.thankYouMessage}
         </p>
-        </div>
       </div>
     );
   }
 
   return (
-    <div className="px-4 py-10">
-      <div className={`relative max-w-5xl mx-auto p-6 sm:p-8 lg:p-10 rounded-3xl ${themeClasses.background} border ${themeClasses.border} backdrop-blur-sm overflow-hidden`}>
-        {/* Decorative background */}
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-br from-purple-500/5 to-pink-500/5' : 'bg-gradient-to-br from-purple-100/50 to-pink-100/50'}`}></div>
-        
-        {/* Floating hearts animation */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(6)].map((_, i) => (
-            <Heart
-              key={i}
-              className={`absolute w-4 h-4 text-pink-400/30 animate-pulse`}
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${10 + (i % 2) * 70}%`,
-                animationDelay: `${i * 0.5}s`,
-                animationDuration: `${2 + i * 0.3}s`
+    <div className={`relative p-8 rounded-3xl ${themeClasses.background} border ${themeClasses.border} backdrop-blur-sm overflow-hidden`}>
+      {/* Decorative background */}
+      <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-br from-purple-500/5 to-pink-500/5' : 'bg-gradient-to-br from-purple-100/50 to-pink-100/50'}`}></div>
+      
+      {/* Floating hearts animation */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <Heart
+            key={i}
+            className={`absolute w-4 h-4 text-pink-400/30 animate-pulse`}
+            style={{
+              left: `${20 + i * 15}%`,
+              top: `${10 + (i % 2) * 70}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${2 + i * 0.3}s`
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center mr-3">
+              <Heart className="w-6 h-6 text-white" />
+            </div>
+            <h3 className={`text-3xl font-bold bg-gradient-to-r ${isDark ? 'from-pink-400 to-purple-400' : 'from-pink-600 to-purple-600'} bg-clip-text text-transparent`}>
+              {t.title}
+            </h3>
+          </div>
+          <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
+            {t.subtitle}
+          </p>
+          <p className={`${themeClasses.textMuted} max-w-2xl mx-auto`}>
+            {t.description}
+          </p>
+        </div>
+
+        {/* Donation amounts */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {predefinedAmounts.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setSelectedAmount(item.amount);
+                if (item.amount > 0) handleDonate(item.amount);
               }}
-            />
+              className={`group relative p-6 rounded-2xl ${themeClasses.cardBg} border ${
+                selectedAmount === item.amount ? 'border-purple-500' : themeClasses.border
+              } ${themeClasses.cardHover} transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg`}
+            >
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} p-3 mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                <item.icon className="w-6 h-6 text-white" />
+              </div>
+              <div className="text-center">
+                {item.amount > 0 && (
+                  <div className={`text-2xl font-bold ${themeClasses.text} mb-1`}>
+                    ${item.amount}
+                  </div>
+                )}
+                <div className={`text-sm ${themeClasses.textSecondary}`}>
+                  {item.label}
+                </div>
+              </div>
+            </button>
           ))}
         </div>
 
-        <div className="relative z-10">
-          {/* Header */}
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center mr-3">
-                <Heart className="w-6 h-6 text-white" />
+        {/* Custom amount input */}
+        {selectedAmount === 0 && (
+          <div className="mb-8 animate-in slide-in-from-top-2 duration-300">
+            <div className="flex items-center justify-center space-x-4">
+              <div className="relative">
+                <span className={`absolute left-3 top-1/2 transform -translate-y-1/2 ${themeClasses.textMuted}`}>$</span>
+                <input
+                  type="number"
+                  value={customAmount}
+                  onChange={(e) => setCustomAmount(e.target.value)}
+                  placeholder={t.enterAmount}
+                  className={`pl-8 pr-4 py-3 rounded-xl ${themeClasses.inputBg} border ${themeClasses.inputBorder} ${themeClasses.text} focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300`}
+                  min="1"
+                  step="0.01"
+                />
               </div>
-              <h3 className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${isDark ? 'from-pink-400 to-purple-400' : 'from-pink-600 to-purple-600'} bg-clip-text text-transparent`}>
-                {t.title}
-              </h3>
-            </div>
-            <p className={`text-lg sm:text-xl ${themeClasses.textSecondary} mb-3`}>
-              {t.subtitle}
-            </p>
-            <p className={`${themeClasses.textMuted} max-w-2xl mx-auto`}>
-              {t.description}
-            </p>
-          </div>
-
-          {/* Donation amounts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 items-stretch">
-            {predefinedAmounts.map((item, index) => (
               <button
-                key={index}
-                onClick={() => {
-                  setSelectedAmount(item.amount);
-                  if (item.amount > 0) handleDonate(item.amount);
-                }}
-                className={`group relative p-5 sm:p-6 rounded-2xl h-full flex flex-col justify-between ${themeClasses.cardBg} border ${
-                  selectedAmount === item.amount ? 'border-purple-500' : themeClasses.border
-                } ${themeClasses.cardHover} transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg`}
+                onClick={() => handleDonate(0)}
+                disabled={!customAmount || parseFloat(customAmount) <= 0}
+                className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} p-3 mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-center">
-                  {item.amount > 0 && (
-                    <div className={`text-2xl font-bold ${themeClasses.text} mb-1`}>
-                      ${item.amount}
-                    </div>
-                  )}
-                  <div className={`text-sm ${themeClasses.textSecondary}`}>
-                    {item.label}
-                  </div>
-                </div>
+                {t.donateButton}
               </button>
-            ))}
+            </div>
           </div>
+        )}
 
-          {/* Custom amount input */}
-          {selectedAmount === 0 && (
-            <div className="mb-8 animate-in slide-in-from-top-2 duration-300">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
-                <div className="relative w-full sm:w-60">
-                  <span className={`absolute left-3 top-1/2 transform -translate-y-1/2 ${themeClasses.textMuted}`}>$</span>
-                  <input
-                    type="number"
-                    value={customAmount}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                    placeholder={t.enterAmount}
-                    className={`pl-8 pr-4 py-3 w-full rounded-xl ${themeClasses.inputBg} border ${themeClasses.inputBorder} ${themeClasses.text} focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300`}
-                    min="1"
-                    step="0.01"
-                  />
-                </div>
-                <button
-                  onClick={() => handleDonate(0)}
-                  disabled={!customAmount || parseFloat(customAmount) <= 0}
-                  className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
-                >
-                  {t.donateButton}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* PayPal branding */}
-          <div className="text-center mt-4">
-            <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full ${isDark ? 'bg-slate-700/50' : 'bg-gray-100/80'} ${themeClasses.textMuted} text-sm`}>
-              <Zap className="w-4 h-4" />
-              <span>{t.poweredBy}</span>
-            </div>
+        {/* PayPal branding */}
+        <div className="text-center">
+          <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full ${isDark ? 'bg-slate-700/50' : 'bg-gray-100/80'} ${themeClasses.textMuted} text-sm`}>
+            <Zap className="w-4 h-4" />
+            <span>{t.poweredBy}</span>
           </div>
         </div>
       </div>
