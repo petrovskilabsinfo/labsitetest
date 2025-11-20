@@ -8,9 +8,9 @@ interface DonationBlockProps {
 
 const donationTexts = {
   en: {
-    title: "Support ColorAdapt Development",
+    title: "Support PetrovskiLabs Development",
     subtitle: "Help us bring better visual comfort to everyone",
-    description: "Your support helps us continue developing ColorAdapt and adding new features for visual accessibility.",
+    description: "Your support helps us create new privacy‑first, accessibility‑focused tools at PetrovskiLabs.",
     amounts: ["Buy me a coffee", "Support development", "Premium support", "Custom amount"],
     thankYou: "Thank you for your support! 💜",
     thankYouMessage: "Your contribution helps make ColorAdapt better for everyone!",

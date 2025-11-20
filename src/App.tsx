@@ -97,13 +97,12 @@ function App() {
               <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
 
               {/* Privacy Policy link */}
-              <button
-                type="button"
-                onClick={() => scrollToSection('privacy')}
+              <a
+                href="#privacy"
                 className={`text-sm font-medium ${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors duration-200`}
               >
                 Privacy Policy
-              </button>
+              </a>
             </div>
 
             {/* Mobile Navigation Button */}
@@ -316,10 +315,12 @@ function App() {
 
                   <div className="pt-6 flex flex-wrap gap-4">
                     <a
-                      href="#"
+                      href="https://www.musicadapt.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
                     >
-                      Coming soon
+                      Visit Website
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </a>
                   </div>
