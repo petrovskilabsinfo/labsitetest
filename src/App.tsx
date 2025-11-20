@@ -213,27 +213,17 @@ function App() {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>{t.projects.colorAdapt.impact}</h4>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {t.projects.colorAdapt.impactList.map((item, index) => (
-                      <div key={index} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>{item}</p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href="https://coloradapt.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
+                  >
+                    {t.projects.colorAdapt.visitWebsite}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
                 </div>
-
-                <a
-                  href="https://coloradapt.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
-                >
-                  {t.projects.colorAdapt.visitWebsite}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
               </div>
             </div>
           </div>
@@ -265,27 +255,17 @@ function App() {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>{t.projects.grayTrigger.impact}</h4>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {t.projects.grayTrigger.impactList.map((item, index) => (
-                      <div key={index} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>{item}</p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href="https://graytrigger.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
+                  >
+                    {t.projects.grayTrigger.visitWebsite}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
                 </div>
-
-                <a
-                  href="https://graytrigger.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
-                >
-                  {t.projects.grayTrigger.visitWebsite}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
               </div>
             </div>
           </div>
@@ -295,82 +275,42 @@ function App() {
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-indigo-500/5 to-purple-500/5' : 'bg-gradient-to-br from-indigo-100/50 to-purple-100/50'}`}></div>
 
             <div className="relative z-10">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
-                {/* Left column: main text and CTA */}
-                <div className="flex flex-col justify-between h-full space-y-4">
-                  <div className="max-w-2xl">
-                    <h3 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent mb-2">
-                      MusicAdapt
-                    </h3>
-                    <p className={`text-xl ${themeClasses.textSecondary} mb-3`}>
-                      bring perfect sound everywhere
-                    </p>
-                    <p className={`${themeClasses.textSecondary} leading-relaxed`}>
-                      MusicAdapt is an innovative platform for automatic mastering and sound adaptation across devices, genres, and audiences.
-                    </p>
-                    <p className={`${themeClasses.textSecondary} leading-relaxed mt-3`}>
-                      We combine professional-grade DSP algorithms with an intuitive interface, making premium sound accessible to every musician, producer, or brand.
-                    </p>
-                  </div>
+              <div className="max-w-4xl">
+                <h3 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent mb-2">
+                  MusicAdapt
+                </h3>
+                <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
+                  bring perfect sound everywhere
+                </p>
+                <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
+                  MusicAdapt is an innovative platform for automatic mastering and sound adaptation across devices, genres, and audiences. We combine professional-grade DSP algorithms with an intuitive interface, making premium sound accessible to every musician, producer, or brand.
+                </p>
 
-                  <div className="pt-6 flex flex-wrap gap-4">
-                    <a
-                      href="https://www.musicadapt.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
-                    >
-                      Visit Website
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
+                <div className="mb-5">
+                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>Technologies</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
+                      Web Audio API
+                    </span>
+                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
+                      React
+                    </span>
+                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
+                      Node.js
+                    </span>
                   </div>
                 </div>
 
-                {/* Right column: structured detail blocks (placeholder for future content) */}
-                <div className="space-y-5">
-                  <div className={`${isDarkTheme ? 'bg-slate-900/40' : 'bg-white/80'} rounded-2xl border border-white/10 p-5 space-y-3`}>
-                    <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Key Capabilities</h4>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Automatic mastering for different devices</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Adaptive sound for genres & audiences</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Studio‑grade DSP in the cloud</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Simple workflow for creators & brands</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`${isDarkTheme ? 'bg-slate-900/40' : 'bg-white/80'} rounded-2xl border border-white/10 p-5 space-y-3`}>
-                    <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Use Cases</h4>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Music releases & streaming</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Branded content & campaigns</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Podcasts & spoken word</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>In‑store & experiential audio</p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href="https://www.musicadapt.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+                  >
+                    Visit Website
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -381,77 +321,40 @@ function App() {
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-emerald-500/5 to-slate-900/40' : 'bg-gradient-to-br from-emerald-100/50 to-gray-900/10'}`}></div>
 
             <div className="relative z-10">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
-                {/* Left column: main text and CTA */}
-                <div className="flex flex-col justify-between h-full space-y-4">
-                  <div className="max-w-2xl">
-                    <h3 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent mb-2">
-                      MatrixRain
-                    </h3>
-                    <p className={`text-xl ${themeClasses.textSecondary} mb-3`}>
-                      fullscreen digital rain for your browser
-                    </p>
-                    <p className={`${themeClasses.textSecondary} leading-relaxed`}>
-                      MatrixRain — a fullscreen digital rain effect inspired by The Matrix. Bring a stylish cinematic atmosphere to your browser: select from 237 languages and one of 15 preset colors, then enjoy the immersive visuals.
-                    </p>
-                  </div>
+              <div className="max-w-4xl">
+                <h3 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent mb-2">
+                  MatrixRain
+                </h3>
+                <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
+                  fullscreen digital rain for your browser
+                </p>
+                <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
+                  MatrixRain — a fullscreen digital rain effect inspired by The Matrix. Bring a stylish cinematic atmosphere to your browser: select from 237 languages and one of 15 preset colors, then enjoy the immersive visuals.
+                </p>
 
-                  <div className="pt-6 flex flex-wrap gap-4">
-                    <a
-                      href="#"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
-                    >
-                      Coming soon
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
+                <div className="mb-5">
+                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>Technologies</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
+                      HTML5 Canvas
+                    </span>
+                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
+                      TypeScript
+                    </span>
+                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
+                      React
+                    </span>
                   </div>
                 </div>
 
-                {/* Right column: structured detail blocks (placeholder for future content) */}
-                <div className="space-y-5">
-                  <div className={`${isDarkTheme ? 'bg-slate-900/60' : 'bg-white/80'} rounded-2xl border border-white/10 p-5 space-y-3`}>
-                    <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Experience</h4>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Cinematic fullscreen rain effect</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Smooth performance in modern browsers</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Immersive ambient visual atmosphere</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Great for focus, streaming or display setups</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`${isDarkTheme ? 'bg-slate-900/60' : 'bg-white/80'} rounded-2xl border border-white/10 p-5 space-y-3`}>
-                    <h4 className={`text-lg font-semibold ${themeClasses.text}`}>Customization</h4>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-300 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>237 language presets for glyphs</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-300 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>15 preset color themes</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-300 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Fine‑tuning for speed & density</p>
-                      </div>
-                      <div className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-300 mt-2 flex-shrink-0"></div>
-                        <p className={`text-sm ${themeClasses.textSecondary}`}>Lightweight extension‑friendly design</p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href="#"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
+                  >
+                    Coming soon
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
                 </div>
               </div>
             </div>
