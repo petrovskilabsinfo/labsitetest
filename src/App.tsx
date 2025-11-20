@@ -5,6 +5,7 @@ import { LanguageSelector } from './components/LanguageSelector';
 import { ThemeToggle } from './components/ThemeToggle';
 import { DonationBlock } from './components/DonationBlock';
 import { PrivacyPolicySection } from './components/PrivacyPolicySection';
+import { FeatureCardGrid } from './components/FeatureCardGrid';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,6 +13,9 @@ function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const t = petrovskiLabsTranslations[currentLanguage];
+  const fallbackProjects = petrovskiLabsTranslations.en.projects;
+  const colorAdaptCards = (t.projects.colorAdapt as { cards?: typeof fallbackProjects.colorAdapt.cards }).cards ?? fallbackProjects.colorAdapt.cards;
+  const grayTriggerCards = (t.projects.grayTrigger as { cards?: typeof fallbackProjects.grayTrigger.cards }).cards ?? fallbackProjects.grayTrigger.cards;
 
   useEffect(() => {
     setIsVisible(true);
@@ -204,48 +208,6 @@ function App() {
                   </p>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.features.title}</h4>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.hdr}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.hdrLite}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.oled}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.toneBalance}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.immersive}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.accessibility}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.movieStock}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.technicalLuts}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.colorAdapt.features.pipPiw}</p>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="space-y-2">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
@@ -283,6 +245,18 @@ function App() {
                 </div>
               </div>
             </div>
+
+            <div className="md:col-span-2 mt-8 space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.colorAdapt.features.title}</h4>
+                <div className="h-px flex-1 ml-4 bg-white/10" />
+              </div>
+              <FeatureCardGrid
+                cards={colorAdaptCards}
+                isDark={isDarkTheme}
+                variant="colorAdapt"
+              />
+            </div>
           </div>
 
           {/* GrayTrigger Project */}
@@ -318,36 +292,6 @@ function App() {
                   </p>
                 </div>
 
-                <div className="space-y-3">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.features.title}</h4>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.autoGrayscale}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.noBlocking}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.crossPlatform}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.digitalWellness}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.realTime}</p>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
-                      <p className={`text-sm ${themeClasses.textSecondary}`}>{t.projects.grayTrigger.features.customizable}</p>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="space-y-2">
                   <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.technologies}</h4>
                   <div className="flex flex-wrap gap-2">
@@ -371,7 +315,6 @@ function App() {
                   </div>
                 </div>
 
-
                 <div className="flex flex-wrap gap-4 pt-4">
                   <a
                     href="https://graytrigger.com/"
@@ -384,6 +327,18 @@ function App() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            <div className="md:col-span-2 mt-8 space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className={`text-lg font-semibold ${themeClasses.text}`}>{t.projects.grayTrigger.features.title}</h4>
+                <div className="h-px flex-1 ml-4 bg-white/10" />
+              </div>
+              <FeatureCardGrid
+                cards={grayTriggerCards}
+                isDark={isDarkTheme}
+                variant="grayTrigger"
+              />
             </div>
           </div>
         </div>
