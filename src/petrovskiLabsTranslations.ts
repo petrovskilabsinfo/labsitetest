@@ -116,37 +116,47 @@ export const petrovskiLabsTranslations = {
       cookies: "Cookie Policy"
     },
     privacyPolicy: {
-      badge: "Privacy by Design",
-      title: "Privacy-first engineering for every product we ship",
-      subtitle: "Your IP, datasets, and customer data stay protected with local-first workflows, zero tracking, and encrypted infrastructure.",
+      badge: "",
+      title: "Privacy Policy",
+      subtitle: "We respect your privacy and engineer every website, extension, and application with a data-minimization mindset.",
       highlights: [
         {
           icon: 'Shield',
-          title: "Zero tracking or reselling",
-          description: "We never embed advertising beacons or sell behavioral data. Your work stays yours."
+          title: "No personal data collected",
+          description: "Browsing petrovskilabs.com or using our tools never sends personal information to our servers."
         },
         {
           icon: 'Eye',
-          title: "Transparent permissions",
-          description: "Only the minimal access required for delivery. Full audit trails and NDAs on request."
+          title: "Local-first design",
+          description: "Settings for ColorAdapt, GrayTrigger, and custom builds remain stored locally on your device."
         },
         {
           icon: 'Zap',
-          title: "Encrypted delivery",
-          description: "Source code, builds, and research assets move through end-to-end encrypted channels."
+          title: "No tracking, no ads",
+          description: "We avoid analytics trackers, ad pixels, profiling cookies, or third-party beacons."
         },
         {
           icon: 'Globe',
-          title: "Global compliance",
-          description: "Aligned with GDPR, SOC 2, and enterprise procurement requirements across regions."
+          title: "No sharing",
+          description: "We never sell, rent, or share your data with partners or advertisers."
+        },
+        {
+          icon: 'Lightbulb',
+          title: "Minimal permissions",
+          description: "Our products request only the technical access required to deliver the promised functionality."
+        },
+        {
+          icon: 'Heart',
+          title: "Full control",
+          description: "Remove all data at any time by uninstalling the product or clearing local storage."
         }
       ],
       compliance: {
-        title: "We commit to",
+        title: "Payments & security",
         items: [
-          "Signed NDAs & data processing agreements",
-          "GDPR/CCPA-ready delivery pipelines",
-          "Security reviews for enterprise teams"
+          "Donations are processed securely via PayPal",
+          "We never see or store card information",
+          "You stay in control of every asset"
         ]
       }
     },
@@ -283,37 +293,47 @@ export const petrovskiLabsTranslations = {
       cookies: "Политика cookies"
     },
     privacyPolicy: {
-      badge: "Приватность по умолчанию",
-      title: "Проекты с приоритетом безопасности данных",
-      subtitle: "Ваша интеллектуальная собственность и пользовательские данные остаются под контролем благодаря локальным процессам, нулевому трекингу и сквозному шифрованию.",
+      badge: "",
+      title: "Политика конфиденциальности",
+      subtitle: "Мы уважаем вашу приватность и строим сайты, расширения и приложения с принципом минимизации данных.",
       highlights: [
         {
           icon: 'Shield',
-          title: "Без трекеров и продажи данных",
-          description: "Не встраиваем рекламные пиксели и не перепродаём поведенческую информацию. Всё остаётся у вас."
+          title: "Без сбора персональных данных",
+          description: "Просмотр petrovskilabs.com и использование наших инструментов не отправляет персональные данные на наши серверы."
         },
         {
           icon: 'Eye',
-          title: "Прозрачные доступы",
-          description: "Запрашиваем только минимальные права. Готовы подписывать NDA и предоставлять отчётность."
+          title: "Локальное хранение",
+          description: "Настройки ColorAdapt, GrayTrigger и кастомных решений живут только на вашем устройстве."
         },
         {
           icon: 'Zap',
-          title: "Шифрованные поставки",
-          description: "Исходники, сборки и исследования передаются по end-to-end шифрованным каналам."
+          title: "Без трекинга и рекламы",
+          description: "Не используем аналитические трекеры, рекламные пиксели, профилирующие cookies и сторонние маяки."
         },
         {
           icon: 'Globe',
-          title: "Соответствие стандартам",
-          description: "Работаем в соответствии с требованиями GDPR, SOC 2 и корпоративного комплаенса по всему миру."
+          title: "Никакого шеринга",
+          description: "Не продаём, не арендуем и не передаём данные третьим лицам."
+        },
+        {
+          icon: 'Lightbulb',
+          title: "Минимальные доступы",
+          description: "Запрашиваем только необходимый технический доступ для основной функциональности."
+        },
+        {
+          icon: 'Heart',
+          title: "Полный контроль",
+          description: "Удалите продукт или очистите хранилище — и все данные исчезнут из системы."
         }
       ],
       compliance: {
-        title: "Мы гарантируем",
+        title: "Платежи и безопасность",
         items: [
-          "Подписанные NDA и DPA",
-          "Процессы, готовые к GDPR/CCPA",
-          "Безопасные ревью и поставки для enterprise-клиентов"
+          "Пожертвования проходят только через безопасный PayPal",
+          "Мы не видим и не храним данные банковских карт",
+          "Вы полностью контролируете свои активы"
         ]
       }
     },

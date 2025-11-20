@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Eye, Zap, Globe, type LucideIcon } from 'lucide-react';
+import { Shield, Eye, Zap, Globe, Lightbulb, Heart, type LucideIcon } from 'lucide-react';
 import { petrovskiLabsTranslations, type Language } from '../petrovskiLabsTranslations';
 
 interface PrivacyPolicySectionProps {
@@ -11,7 +11,9 @@ const iconMap: Record<string, LucideIcon> = {
   Shield,
   Eye,
   Zap,
-  Globe
+  Globe,
+  Lightbulb,
+  Heart
 };
 
 interface PolicyHighlight {
@@ -51,9 +53,11 @@ export const PrivacyPolicySection: React.FC<PrivacyPolicySectionProps> = ({ isDa
         <div className="pointer-events-none absolute -bottom-32 -right-10 h-80 w-80 rounded-full bg-purple-500/20 blur-[160px]" />
 
         <div className="relative flex flex-col items-center text-center gap-4 mb-12">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs uppercase tracking-[0.3em] text-white/80">
-            {policy.badge}
-          </span>
+          {policy.badge ? (
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs uppercase tracking-[0.3em] text-white/80">
+              {policy.badge}
+            </span>
+          ) : null}
           <h2 className="text-4xl md:text-5xl font-bold text-white bg-gradient-to-r from-white via-pink-100 to-purple-200 bg-clip-text text-transparent">
             {policy.title}
           </h2>
