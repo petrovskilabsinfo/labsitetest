@@ -1,132 +1,272 @@
-export const translations = {
+export const petrovskiLabsTranslations = {
   en: {
     nav: {
-      brand: "ColorAdapt",
-      privacy: "Privacy Policy"
+      about: "About",
+      projects: "Projects",
+      contact: "Contact",
+      startProject: "Start Your Project",
+      language: "EN"
     },
     hero: {
-      title: "Bring color back to",
-      titleHighlight: "your life",
-      subtitle: "Professional HDR and advanced filters for your favorite websites",
-      description: "ColorAdapt – By Yuri Petrovski delivers professional‑grade visual filters designed for comfort, creativity, and accessibility.",
-      downloadBtn: "Download Extension",
-      featuresBtn: "View Features",
-      learnBtn: "Learn More"
+      badge: "Innovative Development Studio",
+      title: "Building the",
+      titleHighlight: "Future",
+      subtitle: "of Digital Products",
+      description: "We transform innovative ideas into powerful startups and cutting-edge software solutions. From MVP to market leader, we're your technology partner.",
+      startProject: "Start Your Project",
+      viewWork: "View Our Work"
     },
+    projects: {
+      title: "Featured Projects",
+      subtitle: "Explore our portfolio of successful projects that demonstrate our expertise in creating cutting-edge digital solutions.",
+      colorAdapt: {
+        title: "ColorAdapt",
+        subtitle: "bring color back to your life",
+        description: "Professional-grade visual filters browser extension that delivers cinematic HDR, OLED colors, and accessibility features for your favorite websites. Created by globally recognized artist Yuri Petrovski with privacy-first design and no data collection.",
     features: {
-      title: "Instantly enhance your browsing",
-      subtitle: "All settings are applied locally, with no data collection — just pure visual comfort across your favorite websites.",
-      hdr: {
-        title: "HDR & DVision+",
-        description: "🎬 HDR‑Lite & DVision+ for cinematic clarity and enhanced visual depth"
+          title: "Key Features:",
+          hdr: "HDR & DVision+",
+          hdrLite: "HDR‑Lite & DVision",
+          oled: "OLED Colors",
+          toneBalance: "Tone Balance",
+          immersive: "Immersive Modes",
+          accessibility: "Accessibility",
+          movieStock: "Petrovski's Movie Stock",
+          technicalLuts: "Technical LUTs",
+          pipPiw: "PiW & PiP Modes"
+        },
+        technologies: "Technologies:",
+        techList: ["Browser Extension", "HDR Technology", "Color Science", "WCAG Compliance"],
+        impact: "Impact & Results:",
+        impactList: ["Enhanced Visual Experience", "Accessibility Support", "Privacy Protection", "Cross-Browser Compatibility"],
+        visitWebsite: "Visit Website",
+        learnMore: "Learn More"
       },
-      oled: {
-        title: "OLED Colors",
-        description: "✨ OLED Colors for vibrant contrast and stunning visual experiences"
-      },
-      comfort: {
-        title: "Comfort Modes",
-        description: "🌙 Dark/Light Modes for day & night comfort with intelligent adaptation"
-      },
-      tone: {
-        title: "Tone Balance",
-        description: "🌡️ Warm/Cold Tone for eye‑friendly balance throughout the day"
-      },
-      immersive: {
-        title: "Immersive Modes",
-        description: "🎮 Cinematic & Gaming Modes for immersive experiences across all content"
-      },
-      accessibility: {
-        title: "Accessibility",
-        description: "♿ Accessibility Filters for color blindness correction and enhanced visibility"
-      },
-      movieStock: {
-        title: "Petrovski's Movie Stock",
-        description: "🎬 Professional cinematic filters: Golden Daylight, Nocturne Moon, Eternal Dawn, Twilight Glow, Royal Majestic, Silver Screen, Retro Luxury, Crystal Day, Elite Vintage, Matrix Green, Bleach Bypass, Film Noir"
-      },
-      technicalLuts: {
-        title: "Technical LUTs",
-        description: "⚙️ Professional color grading: Rec.709 Standard, Rec.2020 UHD, Hybrid Log Gamma (HLG), PQ ST-2084 (HDR)"
-      },
-      pipPiw: {
-        title: "PiW & PiP Modes",
-        description: "🖼️ Page-in-Window and Picture-in-Picture for multitasking: watch videos while browsing, seamless overlay controls"
+      grayTrigger: {
+        title: "GrayTrigger",
+        subtitle: "less screen, more hugs",
+        description: "Revolutionary productivity tool that automatically switches your screen to grayscale mode when you open social media sites like TikTok, Instagram, YouTube, Snapchat, X/Twitter, and Facebook. Helps reduce social media addiction through gentle visual cues — without blocking, without forcing.",
+        features: {
+          title: "Key Features:",
+          autoGrayscale: "Automatic grayscale triggering for social media sites",
+          noBlocking: "No blocking or forced restrictions",
+          crossPlatform: "Cross-platform compatibility",
+          digitalWellness: "Gentle approach to digital wellness",
+          realTime: "Real-time screen mode switching",
+          customizable: "Customizable site targeting"
+        },
+        technologies: "Technologies:",
+        techList: ["Desktop App", "Browser Extension", "System Integration", "Cross-Platform"],
+        impact: "Impact & Results:",
+        impactList: ["Reduces Screen Time", "Improves Focus", "Digital Wellness", "No Blocking Required"],
+        visitWebsite: "Visit Website",
+        learnMore: "Learn More"
       }
     },
-    videoSection: {
-      title: "See ColorAdapt in Action",
-      subtitle: "Watch how ColorAdapt transforms your browsing experience with professional-grade visual filters",
-      demoTitle: "ColorAdapt Demo & Features",
-      demoSubtitle: "Experience the power of professional visual filters for web browsing",
-      liveDemo: {
-        title: "Live Demo",
-        description: "See real-time filter effects on popular websites"
+    cta: {
+      title: "Ready to Start Your Project?",
+      subtitle: "Let's discuss how we can help you achieve your goals with innovative technology solutions.",
+      startProject: "Start Your Project",
+      viewCaseStudies: "View Case Studies"
+    },
+    buildTogether: {
+      title: "Let's Build Together",
+      subtitle: "Ready to transform your ideas into reality? Get in touch and let's discuss how we can help you achieve your goals.",
+      stats: {
+        projects: { value: "50+", label: "Projects Delivered", icon: "Rocket" },
+        startups: { value: "15+", label: "Startups Launched", icon: "TrendingUp" },
+        satisfaction: { value: "98%", label: "Client Satisfaction", icon: "Award" }
       },
-      quickSetup: {
-        title: "Quick Setup",
-        description: "Learn how to install and configure in minutes"
+      about: {
+        title: "About PetrovskiLabs",
+        description: "We are a forward-thinking development studio specializing in cutting-edge technology solutions. Our team combines technical expertise with creative innovation to deliver exceptional digital products.",
+        tagline: "Transforming Ideas into Digital Reality"
       },
-      allFeatures: {
-        title: "All Features",
-        description: "Explore HDR, OLED colors, and accessibility modes"
+      expertise: {
+        title: "Our Expertise",
+        fullstack: { title: "Full-Stack Development", desc: "End-to-end development from concept to deployment", icon: "Code" },
+        startup: { title: "Startup Solutions", desc: "MVP development and scaling for rapid growth", icon: "Rocket" },
+        research: { title: "R&D Projects", desc: "Innovative research and experimental technologies", icon: "Lightbulb" }
+      },
+      companyStats: {
+        years: { value: "5+", label: "Years Experience" },
+        team: { value: "25+", label: "Team Members" },
+        countries: { value: "12", label: "Countries Served" },
+        funding: { value: "$99M+", label: "Funding Raised" }
       }
     },
-    whyChoose: {
-      title: "Why Choose ColorAdapt?",
-      privacy: {
-        title: "🔒 Privacy by Design",
-        description: "No personal data is collected or shared. All settings and PIN protection are stored only on your device."
+    contact: {
+      email: {
+        title: "Email",
+        address: "petrovskilabsinfo@gmail.com",
+        description: "Send us an email for detailed discussions"
       },
-      certified: {
-        title: "♿ Accessibility Certified",
-        description: "Built with WCAG and ISO standards in mind, ensuring visual comfort for everyone."
-      },
-      vision: {
-        title: "🎨 Artist & Developer Vision",
-        description: "A unique blend of creativity and technical precision from globally recognized artist Yuri Petrovski."
-      },
-      future: {
-        title: "🚀 Future‑Ready",
-        description: "Continuous updates with upcoming new features."
-      },
-      crossPlatform: {
-        title: "Cross‑Platform Excellence",
-        description: "Works flawlessly on Windows/macOS/Linux in all Chromium browsers. Experience a new standard of comfort, crafted by Yuri Petrovski & PetrovskiLabs."
-      }
-    },
-    privacy: {
-      title: "Privacy Policy",
-      noData: {
-        title: "No Personal Data Collected",
-        description: "ColorAdapt does not collect or transmit your personal information."
-      },
-      local: {
-        title: "Local‑First Design",
-        description: "All settings and PINs are stored only on your device."
-      },
-      noSharing: {
-        title: "No Sharing",
-        description: "We do not sell or share any data with third parties."
-      },
-      minimal: {
-        title: "Minimal Permissions",
-        description: "Only the minimal access required to apply visual filters and enable PiP/PiW features is requested."
-      },
-      control: {
-        title: "Full Control",
-        description: "You can remove all data anytime by uninstalling the extension or clearing storage."
+      location: {
+        title: "Location",
+        address: "Remote & Global",
+        description: "Working with clients worldwide"
       }
     },
     footer: {
-      title: "ColorAdapt",
-      description: "Visual comfort, accessibility, and creativity — all in one extension.",
-      copyright: "© 2025 PetrovskiLabs – Founded by Yuri Petrovski"
+      title: "PetrovskiLabs",
+      description: "Transforming innovative ideas into successful digital products. We're your trusted partner for startup development, custom software solutions, and cutting-edge R&D projects.",
+      copyright: "© 2025 PetrovskiLabs. All rights reserved.",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      cookies: "Cookie Policy"
+    },
+    donation: {
+      title: "Support Our Mission",
+      subtitle: "Your support helps us continue creating innovative solutions and delivering exceptional value to the community.",
+      chooseAmount: "Choose an amount",
+      amounts: ["Buy us a coffee", "Support our work", "Become a sponsor"],
+      customAmount: "or enter custom amount",
+      customAmountPlaceholder: "Custom amount",
+      donateButton: "Donate via PayPal",
+      securePayment: "Secure payment through PayPal",
+      quickDonate: "Quick donate",
+      infoTitle: "Your donation helps us maintain and improve our projects, invest in research & development, and create more value for the community.",
+      infoSubtitle: "Every contribution, no matter the size, makes a difference!",
+      thankYou: "Thank you for your support!",
+      thankYouMessage: "Your contribution helps make our work better for everyone!"
     }
   },
-  es: {
+  ru: {
+    nav: {
+      about: "О нас",
+      projects: "Проекты",
+      contact: "Контакты",
+      startProject: "Начать проект",
+      language: "RU"
+    },
+    hero: {
+      badge: "Инновационная студия разработки",
+      title: "Создаем",
+      titleHighlight: "будущее",
+      subtitle: "цифровых продуктов",
+      description: "Мы превращаем инновационные идеи в мощные стартапы и передовые программные решения. От MVP до лидера рынка — мы ваш технологический партнер.",
+      startProject: "Начать проект",
+      viewWork: "Посмотреть работы"
+    },
+    projects: {
+      title: "Избранные проекты",
+      subtitle: "Изучите наше портфолио успешных проектов, демонстрирующих экспертизу в создании передовых цифровых решений.",
+      colorAdapt: {
+        title: "ColorAdapt",
+        subtitle: "верните цвет в свою жизнь",
+        description: "Расширение браузера с профессиональными визуальными фильтрами, обеспечивающее кинематографический HDR, цвета OLED и функции доступности для ваших любимых сайтов. Создано всемирно признанным художником Юрием Петровским с дизайном, ориентированным на приватность и без сбора данных.",
+        features: {
+          title: "Ключевые функции:",
+          hdr: "HDR и DVision+",
+          hdrLite: "HDR‑Lite и DVision",
+          oled: "Цвета OLED",
+          toneBalance: "Баланс тонов",
+          immersive: "Иммерсивные режимы",
+          accessibility: "Доступность",
+          movieStock: "Киносток Петровского",
+          technicalLuts: "Технические LUT",
+          pipPiw: "Режимы PiW и PiP"
+        },
+        technologies: "Технологии:",
+        techList: ["Расширение браузера", "HDR технологии", "Цветоведение", "Соответствие WCAG"],
+        impact: "Влияние и результаты:",
+        impactList: ["Улучшенный визуальный опыт", "Поддержка доступности", "Защита приватности", "Кросс-браузерная совместимость"],
+        visitWebsite: "Посетить сайт",
+        learnMore: "Узнать больше"
+      },
+      grayTrigger: {
+        title: "GrayTrigger",
+        subtitle: "меньше экрана, больше объятий",
+        description: "Революционный инструмент повышения продуктивности, который автоматически переключает экран в режим оттенков серого при открытии сайтов социальных сетей, таких как TikTok, Instagram, YouTube, Snapchat, X/Twitter и Facebook. Помогает снизить зависимость от социальных сетей через мягкие визуальные подсказки — без блокировок, без принуждения.",
+        features: {
+          title: "Ключевые функции:",
+          autoGrayscale: "Автоматическое включение оттенков серого для социальных сетей",
+          noBlocking: "Без блокировок или принудительных ограничений",
+          crossPlatform: "Кросс-платформенная совместимость",
+          digitalWellness: "Мягкий подход к цифровому благополучию",
+          realTime: "Переключение режима экрана в реальном времени",
+          customizable: "Настраиваемое целевое определение сайтов"
+        },
+        technologies: "Технологии:",
+        techList: ["Десктопное приложение", "Расширение браузера", "Системная интеграция", "Кросс-платформенность"],
+        impact: "Влияние и результаты:",
+        impactList: ["Снижает время экрана", "Улучшает фокус", "Цифровое благополучие", "Без блокировок"],
+        visitWebsite: "Посетить сайт",
+        learnMore: "Узнать больше"
+      }
+    },
+    cta: {
+      title: "Готовы начать проект?",
+      subtitle: "Давайте обсудим, как мы можем помочь вам достичь ваших целей с помощью инновационных технологических решений.",
+      startProject: "Начать проект",
+      viewCaseStudies: "Посмотреть кейсы"
+    },
+    buildTogether: {
+      title: "Давайте строить вместе",
+      subtitle: "Готовы превратить ваши идеи в реальность? Свяжитесь с нами и давайте обсудим, как мы можем помочь вам достичь ваших целей.",
+      stats: {
+        projects: { value: "50+", label: "Проектов выполнено", icon: "Rocket" },
+        startups: { value: "15+", label: "Стартапов запущено", icon: "TrendingUp" },
+        satisfaction: { value: "98%", label: "Удовлетворенность клиентов", icon: "Award" }
+      },
+      about: {
+        title: "О PetrovskiLabs",
+        description: "Мы — прогрессивная студия разработки, специализирующаяся на передовых технологических решениях. Наша команда сочетает техническую экспертизу с креативными инновациями для создания исключительных цифровых продуктов.",
+        tagline: "Превращаем идеи в цифровую реальность"
+      },
+      expertise: {
+        title: "Наша экспертиза",
+        fullstack: { title: "Full-Stack разработка", desc: "Комплексная разработка от концепции до развертывания", icon: "Code" },
+        startup: { title: "Решения для стартапов", desc: "Разработка MVP и масштабирование для быстрого роста", icon: "Rocket" },
+        research: { title: "R&D проекты", desc: "Инновационные исследования и экспериментальные технологии", icon: "Lightbulb" }
+      },
+      companyStats: {
+        years: { value: "5+", label: "Лет опыта" },
+        team: { value: "25+", label: "Членов команды" },
+        countries: { value: "12", label: "Обслуженных стран" },
+        funding: { value: "$99M+", label: "Привлеченных инвестиций" }
+      }
+    },
+    contact: {
+      email: {
+        title: "Email",
+        address: "petrovskilabsinfo@gmail.com",
+        description: "Отправьте нам email для детального обсуждения"
+      },
+      location: {
+        title: "Расположение",
+        address: "Удаленно и глобально",
+        description: "Работаем с клиентами по всему миру"
+      }
+    },
+    footer: {
+      title: "PetrovskiLabs",
+      description: "Превращаем инновационные идеи в успешные цифровые продукты. Мы ваш надежный партнер в разработке стартапов, заказных программных решений и передовых R&D проектов.",
+      copyright: "© 2025 PetrovskiLabs. Все права защищены.",
+      privacy: "Политика конфиденциальности",
+      terms: "Условия использования",
+      cookies: "Политика cookies"
+    },
+    donation: {
+      title: "Поддержите нашу миссию",
+      subtitle: "Ваша поддержка помогает нам продолжать создавать инновационные решения и приносить исключительную ценность сообществу.",
+      chooseAmount: "Выберите сумму",
+      amounts: ["Купить нам кофе", "Поддержать нашу работу", "Стать спонсором"],
+      customAmount: "или введите свою сумму",
+      customAmountPlaceholder: "Своя сумма",
+      donateButton: "Поддержать через PayPal",
+      securePayment: "Безопасная оплата через PayPal",
+      quickDonate: "Быстрая поддержка",
+      infoTitle: "Ваша поддержка помогает нам поддерживать и улучшать наши проекты, инвестировать в исследования и разработки и создавать больше ценности для сообщества.",
+      infoSubtitle: "Каждый вклад, независимо от размера, имеет значение!",
+      thankYou: "Спасибо за вашу поддержку!",
+      thankYouMessage: "Ваш вклад помогает сделать нашу работу лучше для всех!"
+    }
+  },
+  de: {
     nav: {
       brand: "ColorAdapt",
-      privacy: "Política de Privacidad"
+      privacy: "Datenschutzrichtlinie"
     },
     hero: {
       title: "Devuelve el color a",

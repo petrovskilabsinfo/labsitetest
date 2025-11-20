@@ -1,304 +1,251 @@
 import React, { useState } from 'react';
-import { Heart, Coffee, Zap, Star, Gift } from 'lucide-react';
+import { Heart, Coffee, Star, Gift, Zap, type LucideIcon } from 'lucide-react';
+import { petrovskiLabsTranslations, Language } from '../petrovskiLabsTranslations';
 
 interface DonationBlockProps {
   isDark: boolean;
-  currentLanguage: string;
+  currentLanguage: Language;
 }
 
-const donationTexts = {
-  en: {
-    title: "Support ColorAdapt Development",
-    subtitle: "Help us bring better visual comfort to everyone",
-    description: "Your support helps us continue developing ColorAdapt and adding new features for visual accessibility.",
-    amounts: ["Buy me a coffee", "Support development", "Premium support", "Custom amount"],
-    thankYou: "Thank you for your support! 💜",
-    thankYouMessage: "Your contribution helps make ColorAdapt better for everyone!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Enter amount",
-    donateButton: "Donate"
+type AccentColor = 'orange' | 'pink' | 'purple' | 'green';
+
+interface DonationPreset {
+  amount: number | 'custom';
+  icon: LucideIcon;
+  label: string;
+  color: AccentColor;
+}
+
+const floatingHearts = [
+  { top: '8%', left: '8%', size: '16px', delay: '0s' },
+  { top: '15%', right: '12%', size: '12px', delay: '1s' },
+  { bottom: '18%', left: '12%', size: '10px', delay: '0.5s' },
+  { bottom: '12%', right: '10%', size: '14px', delay: '1.5s' }
+];
+
+const accentPalette: Record<AccentColor, { iconBg: string; iconColor: string; borderGlow: string; iconShadow: string }> = {
+  orange: {
+    iconBg: 'bg-[linear-gradient(135deg,#ffc235,#ff7b00)]',
+    iconColor: 'text-white',
+    borderGlow: 'hover:border-[#ffb347]/60 hover:shadow-[0_18px_45px_rgba(255,179,71,0.35)]',
+    iconShadow: 'shadow-[0_15px_30px_rgba(255,140,66,0.45)]'
   },
-  ru: {
-    title: "Поддержите разработку ColorAdapt",
-    subtitle: "Помогите нам создавать лучший визуальный комфорт для всех",
-    description: "Ваша поддержка помогает нам продолжать разработку ColorAdapt и добавлять новые функции для визуальной доступности.",
-    amounts: ["Купить кофе", "Поддержать разработку", "Премиум поддержка", "Своя сумма"],
-    thankYou: "Спасибо за вашу поддержку! 💜",
-    thankYouMessage: "Ваш вклад помогает сделать ColorAdapt лучше для всех!",
-    poweredBy: "При поддержке PayPal",
-    enterAmount: "Введите сумму",
-    donateButton: "Поддержать"
+  pink: {
+    iconBg: 'bg-[linear-gradient(135deg,#ff7ed1,#f24a9d)]',
+    iconColor: 'text-white',
+    borderGlow: 'hover:border-[#ff7fd1]/60 hover:shadow-[0_18px_45px_rgba(255,127,209,0.35)]',
+    iconShadow: 'shadow-[0_15px_30px_rgba(244,90,157,0.45)]'
   },
-  es: {
-    title: "Apoya el desarrollo de ColorAdapt",
-    subtitle: "Ayúdanos a brindar mejor comodidad visual para todos",
-    description: "Tu apoyo nos ayuda a continuar desarrollando ColorAdapt y agregando nuevas funciones para la accesibilidad visual.",
-    amounts: ["Cómprame un café", "Apoyar desarrollo", "Soporte premium", "Cantidad personalizada"],
-    thankYou: "¡Gracias por tu apoyo! 💜",
-    thankYouMessage: "¡Tu contribución ayuda a hacer ColorAdapt mejor para todos!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Ingrese cantidad",
-    donateButton: "Donar"
+  purple: {
+    iconBg: 'bg-[linear-gradient(135deg,#b98aff,#7e63ff)]',
+    iconColor: 'text-white',
+    borderGlow: 'hover:border-[#b084ff]/60 hover:shadow-[0_18px_45px_rgba(176,132,255,0.35)]',
+    iconShadow: 'shadow-[0_15px_30px_rgba(126,99,255,0.4)]'
   },
-  fr: {
-    title: "Soutenez le développement de ColorAdapt",
-    subtitle: "Aidez-nous à apporter un meilleur confort visuel à tous",
-    description: "Votre soutien nous aide à continuer le développement de ColorAdapt et à ajouter de nouvelles fonctionnalités pour l'accessibilité visuelle.",
-    amounts: ["Offrez-moi un café", "Soutenir le développement", "Support premium", "Montant personnalisé"],
-    thankYou: "Merci pour votre soutien ! 💜",
-    thankYouMessage: "Votre contribution aide à améliorer ColorAdapt pour tous !",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Entrez le montant",
-    donateButton: "Faire un don"
-  },
-  de: {
-    title: "Unterstützen Sie die ColorAdapt-Entwicklung",
-    subtitle: "Helfen Sie uns, besseren visuellen Komfort für alle zu schaffen",
-    description: "Ihre Unterstützung hilft uns, ColorAdapt weiterzuentwickeln und neue Funktionen für visuelle Barrierefreiheit hinzuzufügen.",
-    amounts: ["Kaufen Sie mir einen Kaffee", "Entwicklung unterstützen", "Premium-Support", "Benutzerdefinierter Betrag"],
-    thankYou: "Vielen Dank für Ihre Unterstützung! 💜",
-    thankYouMessage: "Ihr Beitrag hilft, ColorAdapt für alle besser zu machen!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Betrag eingeben",
-    donateButton: "Spenden"
-  },
-  ja: {
-    title: "ColorAdapt開発をサポート",
-    subtitle: "皆様により良い視覚的快適性を提供するためにご協力ください",
-    description: "あなたのサポートは、ColorAdaptの開発を継続し、視覚的アクセシビリティのための新機能を追加するのに役立ちます。",
-    amounts: ["コーヒーをおごる", "開発をサポート", "プレミアムサポート", "カスタム金額"],
-    thankYou: "ご支援ありがとうございます！💜",
-    thankYouMessage: "あなたの貢献はColorAdaptをみんなのためにより良くします！",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "金額を入力",
-    donateButton: "寄付する"
-  },
-  ar: {
-    title: "دعم تطوير ColorAdapt",
-    subtitle: "ساعدنا في توفير راحة بصرية أفضل للجميع",
-    description: "دعمك يساعدنا على مواصلة تطوير ColorAdapt وإضافة ميزات جديدة لإمكانية الوصول البصري.",
-    amounts: ["اشتر لي قهوة", "دعم التطوير", "دعم مميز", "مبلغ مخصص"],
-    thankYou: "شكرا لدعمك! 💜",
-    thankYouMessage: "مساهمتك تساعد في جعل ColorAdapt أفضل للجميع!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "أدخل المبلغ",
-    donateButton: "تبرع"
-  },
-  hi: {
-    title: "ColorAdapt विकास का समर्थन करें",
-    subtitle: "हमें सभी के लिए बेहतर दृश्य आराम लाने में मदद करें",
-    description: "आपका समर्थन हमें ColorAdapt का विकास जारी रखने और दृश्य पहुंच के लिए नई सुविधाएं जोड़ने में मदद करता है।",
-    amounts: ["मुझे कॉफी खरीदें", "विकास का समर्थन करें", "प्रीमियम समर्थन", "कस्टम राशि"],
-    thankYou: "आपके समर्थन के लिए धन्यवाद! 💜",
-    thankYouMessage: "आपका योगदान सभी के लिए ColorAdapt को बेहतर बनाने में मदद करता है!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "राशि दर्ज करें",
-    donateButton: "दान करें"
-  },
-  it: {
-    title: "Sostieni lo sviluppo di ColorAdapt",
-    subtitle: "Aiutaci a portare un migliore comfort visivo a tutti",
-    description: "Il tuo supporto ci aiuta a continuare a sviluppare ColorAdapt e ad aggiungere nuove funzionalità per l'accessibilità visiva.",
-    amounts: ["Offrimi un caffè", "Sostieni lo sviluppo", "Supporto premium", "Importo personalizzato"],
-    thankYou: "Grazie per il tuo supporto! 💜",
-    thankYouMessage: "Il tuo contributo aiuta a rendere ColorAdapt migliore per tutti!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Inserisci importo",
-    donateButton: "Dona"
-  },
-  zh: {
-    title: "支持 ColorAdapt 开发",
-    subtitle: "帮助我们为所有人带来更好的视觉舒适度",
-    description: "您的支持帮助我们继续开发 ColorAdapt 并为视觉可访问性添加新功能。",
-    amounts: ["请我喝咖啡", "支持开发", "高级支持", "自定义金额"],
-    thankYou: "感谢您的支持！💜",
-    thankYouMessage: "您的贡献帮助 ColorAdapt 为所有人变得更好！",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "输入金额",
-    donateButton: "捐赠"
-  },
-  tr: {
-    title: "ColorAdapt Geliştirmesini Destekleyin",
-    subtitle: "Herkese daha iyi görsel konfor getirmemize yardımcı olun",
-    description: "Desteğiniz ColorAdapt'i geliştirmeye devam etmemize ve görsel erişilebilirlik için yeni özellikler eklememize yardımcı oluyor.",
-    amounts: ["Bana bir kahve ısmarla", "Geliştirmeyi destekle", "Premium destek", "Özel miktar"],
-    thankYou: "Desteğiniz için teşekkürler! 💜",
-    thankYouMessage: "Katkınız ColorAdapt'i herkes için daha iyi hale getirmeye yardımcı oluyor!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Miktar girin",
-    donateButton: "Bağış yap"
-  },
-  ko: {
-    title: "ColorAdapt 개발 지원",
-    subtitle: "모든 사람에게 더 나은 시각적 편안함을 제공하는 데 도움을 주세요",
-    description: "귀하의 지원은 ColorAdapt를 계속 개발하고 시각적 접근성을 위한 새로운 기능을 추가하는 데 도움이 됩니다.",
-    amounts: ["커피 사주기", "개발 지원", "프리미엄 지원", "사용자 지정 금액"],
-    thankYou: "지원해 주셔서 감사합니다! 💜",
-    thankYouMessage: "귀하의 기여는 모든 사람을 위해 ColorAdapt를 더 좋게 만드는 데 도움이 됩니다!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "금액 입력",
-    donateButton: "기부하기"
+  green: {
+    iconBg: 'bg-[linear-gradient(135deg,#79f2c2,#32c77d)]',
+    iconColor: 'text-white',
+    borderGlow: 'hover:border-[#7ef7c2]/60 hover:shadow-[0_18px_45px_rgba(126,247,194,0.35)]',
+    iconShadow: 'shadow-[0_15px_30px_rgba(90,220,150,0.4)]'
   }
 };
 
 export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLanguage }) => {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
 
-  const t = donationTexts[currentLanguage as keyof typeof donationTexts] || donationTexts.en;
-  
-  const predefinedAmounts = [
-    { amount: 3, icon: Coffee, label: t.amounts[0], color: 'from-amber-500 to-orange-500' },
-    { amount: 10, icon: Heart, label: t.amounts[1], color: 'from-pink-500 to-red-500' },
-    { amount: 25, icon: Star, label: t.amounts[2], color: 'from-purple-500 to-indigo-500' },
-    { amount: 0, icon: Gift, label: t.amounts[3], color: 'from-green-500 to-emerald-500' }
+  const t = petrovskiLabsTranslations[currentLanguage] || petrovskiLabsTranslations.en;
+  const sceneBackground = 'transparent';
+  const gratitudeBackground = isDark ? '#030611' : '#f6edff';
+  const heroBadgeBg = isDark ? 'bg-[#080c1d]' : 'bg-white';
+  const heroTitleGradient = isDark ? 'from-white via-pink-100 to-purple-200' : 'from-purple-900 via-pink-600 to-indigo-500';
+  const heroSubtitle = isDark ? 'text-slate-200/80' : 'text-slate-600';
+  const panelStyles = isDark
+    ? 'border border-[#6f4bd8]/20 bg-[#070d1f]/85 shadow-[0_45px_140px_rgba(2,4,12,0.9)]'
+    : 'border border-purple-100 bg-white/95 shadow-[0_45px_120px_rgba(157,140,255,0.35)]';
+  const panelOverlayTop = isDark
+    ? 'bg-[radial-gradient(circle_at_top,_rgba(255,99,214,0.12),_transparent_55%)]'
+    : 'bg-[radial-gradient(circle_at_top,_rgba(224,199,255,0.6),_transparent_60%)]';
+  const panelOverlayBottom = isDark
+    ? 'bg-[radial-gradient(circle_at_bottom,_rgba(89,122,255,0.12),_transparent_50%)]'
+    : 'bg-[radial-gradient(circle_at_bottom,_rgba(190,219,255,0.5),_transparent_55%)]';
+  const infoTitleClass = isDark ? 'text-white/90' : 'text-slate-900';
+  const infoSubtitleClass = isDark ? 'text-slate-300/80' : 'text-slate-500';
+  const presetCardBase = isDark
+    ? 'border border-[#6f4bd8]/40 bg-[#0b1020]/80 hover:bg-[#101833] text-slate-200'
+    : 'border border-purple-100/80 bg-white hover:bg-purple-50 text-slate-600 shadow-[0_18px_45px_rgba(166,146,255,0.25)]';
+  const amountText = isDark ? 'text-white' : 'text-slate-900';
+  const presetLabel = isDark ? 'text-slate-300/80' : 'text-slate-500';
+  const labelClass = isDark ? 'text-slate-300/60' : 'text-slate-500';
+  const inputShell = isDark ? 'bg-[#080f22]/95' : 'bg-white';
+  const currencyColor = isDark ? 'text-white/70' : 'text-slate-500';
+  const heartColor = isDark ? 'text-white/40' : 'text-slate-400';
+  const inputText = isDark ? 'text-white placeholder-white/40' : 'text-slate-900 placeholder-slate-400';
+  const secureChip = isDark
+    ? 'border border-[#2b3245] text-slate-200 bg-[#0f162c]/80'
+    : 'border border-purple-100 text-slate-600 bg-white/85 shadow-sm';
+
+  const predefinedAmounts: DonationPreset[] = [
+    { amount: 3, icon: Coffee, label: t.donation.amounts[0], color: 'orange' },
+    { amount: 10, icon: Heart, label: t.donation.amounts[1], color: 'pink' },
+    { amount: 25, icon: Star, label: t.donation.amounts[2], color: 'purple' },
+    { amount: 'custom', icon: Gift, label: t.donation.customAmountPlaceholder, color: 'green' }
   ];
 
-  const themeClasses = {
-    background: isDark ? 'bg-slate-800/30' : 'bg-white/70',
-    border: isDark ? 'border-purple-500/30' : 'border-purple-300/40',
-    text: isDark ? 'text-white' : 'text-gray-900',
-    textSecondary: isDark ? 'text-gray-300' : 'text-gray-600',
-    textMuted: isDark ? 'text-gray-400' : 'text-gray-500',
-    cardBg: isDark ? 'bg-slate-700/50' : 'bg-white/80',
-    cardHover: isDark ? 'hover:bg-slate-600/50' : 'hover:bg-purple-50/80',
-    inputBg: isDark ? 'bg-slate-700/50' : 'bg-white/90',
-    inputBorder: isDark ? 'border-slate-600' : 'border-purple-200'
-  };
+  const handleDonate = (amount?: number) => {
+    const finalAmount = amount !== undefined ? amount : parseFloat(customAmount) || 5;
 
-  const handleDonate = (amount: number) => {
-    const finalAmount = amount === 0 ? parseFloat(customAmount) || 5 : amount;
-    
-    // PayPal donation URL using email address
-    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent('hoper_Jay@i.ua')}&amount=${finalAmount}&currency_code=USD&item_name=${encodeURIComponent('ColorAdapt Development Support')}&no_note=0&cn=${encodeURIComponent('Message for developer (optional)')}&no_shipping=1&return=${encodeURIComponent('https://coloradapt-visual-co-cab6.bolt.host')}&cancel_return=${encodeURIComponent('https://coloradapt-visual-co-cab6.bolt.host')}`;
-    
-    // Show thank you message and open PayPal
+    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent('hoper_Jay@i.ua')}&amount=${finalAmount}&currency_code=USD&item_name=${encodeURIComponent('PetrovskiLabs Support')}&no_note=0&cn=${encodeURIComponent('Message (optional)')}&no_shipping=1`;
+
     setShowThankYou(true);
     setTimeout(() => setShowThankYou(false), 3000);
-    
-    // Open PayPal donation page
+
     window.open(paypalUrl, '_blank');
   };
 
   if (showThankYou) {
     return (
-      <div className={`relative p-8 rounded-3xl ${themeClasses.background} border ${themeClasses.border} backdrop-blur-sm text-center`}>
-        <div className="animate-bounce mb-4">
-          <Heart className="w-16 h-16 mx-auto text-pink-500" />
+      <div className="relative isolate py-20 px-4 md:px-6 overflow-hidden" style={{ backgroundColor: gratitudeBackground }}>
+        <div className="absolute inset-0 bg-[#030611]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(156,105,255,0.18),_transparent_55%)]" />
+        <div className="absolute -top-20 left-1/4 h-64 w-64 rounded-full bg-pink-500/20 blur-[140px]" />
+        <div className="absolute -bottom-10 right-1/4 h-72 w-72 rounded-full bg-purple-500/25 blur-[140px]" />
+
+        <div className="relative max-w-2xl mx-auto text-center">
+          <div className="rounded-[32px] p-12 backdrop-blur-2xl border border-white/10 bg-white/5 shadow-[0_30px_120px_rgba(5,6,17,0.85)]">
+            <div className="animate-bounce mb-6">
+              <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/30">
+                <Heart className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            <h3 className="text-3xl font-bold text-white mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              {t.donation.thankYou}
+            </h3>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              {t.donation.thankYouMessage}
+            </p>
+          </div>
         </div>
-        <h3 className={`text-2xl font-bold ${themeClasses.text} mb-2`}>
-          {t.thankYou}
-        </h3>
-        <p className={themeClasses.textSecondary}>
-          {t.thankYouMessage}
-        </p>
       </div>
     );
   }
 
   return (
-    <div className={`relative p-8 rounded-3xl ${themeClasses.background} border ${themeClasses.border} backdrop-blur-sm overflow-hidden`}>
-      {/* Decorative background */}
-      <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-br from-purple-500/5 to-pink-500/5' : 'bg-gradient-to-br from-purple-100/50 to-pink-100/50'}`}></div>
-      
-      {/* Floating hearts animation */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <Heart
-            key={i}
-            className={`absolute w-4 h-4 text-pink-400/30 animate-pulse`}
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${10 + (i % 2) * 70}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${2 + i * 0.3}s`
-            }}
-          />
-        ))}
-      </div>
+    <div className="relative py-20 px-4 md:px-6" style={{ backgroundColor: sceneBackground }}>
 
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center mr-3">
-              <Heart className="w-6 h-6 text-white" />
+      {floatingHearts.map((heart, index) => (
+        <span
+          key={index}
+          className="pointer-events-none absolute text-pink-400/20 animate-pulse"
+          style={{ ...heart }}
+        >
+          ♥
+        </span>
+      ))}
+
+      <div className="relative max-w-5xl mx-auto">
+        <div className="text-center space-y-5 mb-12">
+          <div className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-purple-600/80 p-1.5 shadow-[0_15px_35px_rgba(255,85,170,0.45)]">
+            <div className={`w-16 h-16 rounded-full ${heroBadgeBg} flex items-center justify-center`}>
+              <Heart className="w-7 h-7 text-white" />
             </div>
-            <h3 className={`text-3xl font-bold bg-gradient-to-r ${isDark ? 'from-pink-400 to-purple-400' : 'from-pink-600 to-purple-600'} bg-clip-text text-transparent`}>
-              {t.title}
-            </h3>
           </div>
-          <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
-            {t.subtitle}
-          </p>
-          <p className={`${themeClasses.textMuted} max-w-2xl mx-auto`}>
-            {t.description}
-          </p>
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-pink-200/70 mb-3">{t.donation.quickDonate}</p>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r ${heroTitleGradient} bg-clip-text text-transparent`}>
+              {t.donation.title}
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto leading-relaxed ${heroSubtitle}`}>
+              {t.donation.subtitle}
+            </p>
+          </div>
         </div>
 
-        {/* Donation amounts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {predefinedAmounts.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setSelectedAmount(item.amount);
-                if (item.amount > 0) handleDonate(item.amount);
-              }}
-              className={`group relative p-6 rounded-2xl ${themeClasses.cardBg} border ${
-                selectedAmount === item.amount ? 'border-purple-500' : themeClasses.border
-              } ${themeClasses.cardHover} transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg`}
-            >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} p-3 mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                <item.icon className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-center">
-                {item.amount > 0 && (
-                  <div className={`text-2xl font-bold ${themeClasses.text} mb-1`}>
-                    ${item.amount}
+        <div className={`relative rounded-[36px] p-8 md:p-12 backdrop-blur-3xl overflow-hidden ${panelStyles}`}>
+          <div className={`absolute inset-x-6 inset-y-0 ${panelOverlayTop} pointer-events-none`} />
+          <div className={`absolute inset-x-0 inset-y-0 ${panelOverlayBottom} pointer-events-none`} />
+          <div className="relative text-center space-y-3 mb-10">
+            <p className={`text-xl font-semibold ${infoTitleClass}`}>
+              {t.donation.infoTitle}
+            </p>
+            <p className={`text-base ${infoSubtitleClass}`}>
+              {t.donation.infoSubtitle}
+            </p>
+          </div>
+
+          <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-10">
+            {predefinedAmounts.map((item, index) => {
+              const palette = accentPalette[item.color];
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    if (item.amount === 'custom') {
+                      const input = document.querySelector<HTMLInputElement>('input[data-donation-input="true"]');
+                      if (input) input.focus();
+                      return;
+                    }
+                    handleDonate(item.amount as number);
+                  }}
+                  className={`relative p-6 rounded-[28px] transition-all duration-300 transform hover:-translate-y-1 group ${presetCardBase} ${isDark ? palette.borderGlow : ''}`}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className={`w-14 h-14 rounded-2xl mb-4 flex items-center justify-center ${palette.iconBg} group-hover:scale-110 transition-transform duration-300 ${palette.iconShadow}`}>
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <div className={`text-2xl font-bold mb-1 ${amountText}`}>
+                      {item.amount === 'custom' ? '—' : `$${item.amount}`}
+                    </div>
+                    <div className={`text-sm leading-tight ${presetLabel}`}>
+                      {item.label}
+                    </div>
                   </div>
-                )}
-                <div className={`text-sm ${themeClasses.textSecondary}`}>
-                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="relative text-center space-y-6">
+            <div className="flex flex-col items-center gap-3">
+              <label htmlFor="customDonation" className={`text-sm uppercase tracking-[0.4em] ${labelClass}`}>
+                {t.donation.customAmount}
+              </label>
+              <div className="w-full max-w-sm">
+                <div className="rounded-2xl p-[1px] bg-gradient-to-r from-pink-500/80 via-purple-500/80 to-blue-500/80">
+                  <div className={`relative rounded-[18px] ${inputShell}`}>
+                    <span className={`absolute left-4 top-1/2 -translate-y-1/2 text-lg ${currencyColor}`}>$</span>
+                    <Heart className={`absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 ${heartColor}`} />
+                    <input
+                      id="customDonation"
+                      data-donation-input="true"
+                      type="number"
+                      value={customAmount}
+                      onChange={(e) => setCustomAmount(e.target.value)}
+                      placeholder={t.donation.customAmountPlaceholder}
+                      className={`w-full bg-transparent pl-10 pr-10 py-3 rounded-[18px] focus:outline-none ${inputText}`}
+                      min="1"
+                      step="1"
+                    />
+                  </div>
                 </div>
               </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Custom amount input */}
-        {selectedAmount === 0 && (
-          <div className="mb-8 animate-in slide-in-from-top-2 duration-300">
-            <div className="flex items-center justify-center space-x-4">
-              <div className="relative">
-                <span className={`absolute left-3 top-1/2 transform -translate-y-1/2 ${themeClasses.textMuted}`}>$</span>
-                <input
-                  type="number"
-                  value={customAmount}
-                  onChange={(e) => setCustomAmount(e.target.value)}
-                  placeholder={t.enterAmount}
-                  className={`pl-8 pr-4 py-3 rounded-xl ${themeClasses.inputBg} border ${themeClasses.inputBorder} ${themeClasses.text} focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300`}
-                  min="1"
-                  step="0.01"
-                />
-              </div>
-              <button
-                onClick={() => handleDonate(0)}
-                disabled={!customAmount || parseFloat(customAmount) <= 0}
-                className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
-              >
-                {t.donateButton}
-              </button>
             </div>
-          </div>
-        )}
 
-        {/* PayPal branding */}
-        <div className="text-center">
-          <div className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full ${isDark ? 'bg-slate-700/50' : 'bg-gray-100/80'} ${themeClasses.textMuted} text-sm`}>
-            <Zap className="w-4 h-4" />
-            <span>{t.poweredBy}</span>
+            <button
+              onClick={() => handleDonate()}
+              className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-[22px] bg-gradient-to-r from-[#ff4fb8] via-[#c24cff] to-[#5a7bff] text-white font-semibold text-lg tracking-wide shadow-[0_18px_45px_rgba(170,85,255,0.35)] hover:shadow-[0_22px_60px_rgba(170,85,255,0.45)] transition-transform duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-pink-400/40"
+            >
+              <Heart className="w-5 h-5" />
+              {t.donation.donateButton}
+            </button>
+
+            <div className={`pt-6 flex items-center justify-center border-t ${isDark ? 'border-white/10' : 'border-purple-100/80'}`}>
+              <div className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm ${secureChip}`}>
+                <Zap className="w-4 h-4 text-pink-300" />
+                {t.donation.securePayment}
+              </div>
+            </div>
           </div>
         </div>
       </div>
