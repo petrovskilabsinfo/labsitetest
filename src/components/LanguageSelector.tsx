@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Globe } from 'lucide-react';
-import { Language } from '../petrovskiLabsTranslations';
+import { Language } from '../petrovskiStudioTranslations';
 
 interface LanguageSelectorProps {
   currentLanguage: Language;

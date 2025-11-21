@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { ChevronDown, Shield, Eye, Palette, Zap, Globe, Heart, Download, Play, ArrowRight, Monitor, Mail, MapPin, Rocket, Code, Lightbulb, Users, TrendingUp, Award } from 'lucide-react';
-import { petrovskiLabsTranslations, Language } from './petrovskiLabsTranslations';
+import { petrovskiStudioTranslations, Language } from './petrovskiStudioTranslations';
 import { LanguageSelector } from './components/LanguageSelector';
 import { ThemeToggle } from './components/ThemeToggle';
 import { DonationBlock } from './components/DonationBlock';
@@ -10,20 +10,20 @@ function App() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
-  const t = petrovskiLabsTranslations[currentLanguage];
+  const t = useMemo(() => petrovskiStudioTranslations[currentLanguage] || petrovskiStudioTranslations.en, [currentLanguage]);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
-  const themeClasses = {
+  const themeClasses = useMemo(() => ({
     background: isDarkTheme 
       ? 'bg-[#141414]' 
       : 'bg-gradient-to-br from-gray-50 via-purple-50 to-gray-50',
@@ -42,7 +42,7 @@ function App() {
     particleColor: isDarkTheme ? 'bg-cyan-400' : 'bg-purple-500',
     mouseFollower: isDarkTheme ? 'from-purple-500 to-cyan-500' : 'from-purple-600 to-pink-500',
     footerBorder: isDarkTheme ? 'border-purple-500/20' : 'border-purple-300/30'
-  };
+  }), [isDarkTheme]);
 
   return (
     <div className={`min-h-screen ${themeClasses.background} ${themeClasses.text} relative overflow-hidden transition-all duration-700`}>
@@ -63,18 +63,27 @@ function App() {
         ></div>
         
         {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-1 h-1 ${themeClasses.particleColor} rounded-full animate-ping`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          ></div>
-        ))}
+        {useMemo(() => {
+          const particles = Array.from({ length: 12 }, (_, i) => ({
+            id: i,
+            left: Math.random() * 100,
+            top: Math.random() * 100,
+            delay: Math.random() * 3,
+            duration: 2 + Math.random() * 2
+          }));
+          return particles.map((particle) => (
+            <div
+              key={particle.id}
+              className={`absolute w-1 h-1 ${themeClasses.particleColor} rounded-full animate-ping`}
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animationDelay: `${particle.delay}s`,
+                animationDuration: `${particle.duration}s`
+              }}
+            ></div>
+          ));
+        }, [themeClasses.particleColor])}
       </div>
 
       {/* Navigation */}
@@ -82,8 +91,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <div className="font-bold text-xl sm:text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent cursor-pointer" onClick={() => scrollToSection('hero')}>
-              PetrovskiLabs
+            <div className="font-bold text-xl sm:text-2xl bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent cursor-pointer" onClick={useCallback(() => scrollToSection('hero'), [scrollToSection])}>
+              PetrovskiStudio
             </div>
 
             {/* Desktop Navigation */}
@@ -94,7 +103,7 @@ function App() {
                 onLanguageChange={setCurrentLanguage}
                 isDark={isDarkTheme}
               />
-              <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
+              <ThemeToggle isDark={isDarkTheme} onToggle={useCallback(() => setIsDarkTheme(prev => !prev), [])} />
 
               {/* Privacy Policy link */}
               <a
@@ -112,7 +121,7 @@ function App() {
                 onLanguageChange={setCurrentLanguage}
                 isDark={isDarkTheme}
               />
-              <ThemeToggle isDark={isDarkTheme} onToggle={() => setIsDarkTheme(!isDarkTheme)} />
+              <ThemeToggle isDark={isDarkTheme} onToggle={useCallback(() => setIsDarkTheme(prev => !prev), [])} />
               <button className="p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors">
                 <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -146,7 +155,7 @@ function App() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-4">
             <a
-              href="mailto:petrovskilabsinfo@gmail.com"
+              href="mailto:petrovskistudioinfo@gmail.com"
               className="group relative px-10 py-5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-400/25 overflow-hidden inline-flex items-center"
             >
               <span className="relative z-10 flex items-center justify-center">
@@ -159,7 +168,7 @@ function App() {
           </div>
           <button
             type="button"
-            onClick={() => scrollToSection('projects')}
+            onClick={useCallback(() => scrollToSection('projects'), [scrollToSection])}
             className={`mt-4 mx-auto flex items-center gap-2 text-sm md:text-base ${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors duration-200`}
           >
             <span>Learn More</span>
@@ -175,95 +184,61 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className={`py-10 px-6 relative z-10`}>
-        <div className="max-w-4xl mx-auto">
+      <section id="projects" className={`py-10 px-4 sm:px-6 relative z-10`}>
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className={`text-5xl md:text-6xl font-bold ${themeClasses.text} mb-6`}>
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold ${themeClasses.text} mb-4 sm:mb-6`}>
               {t.projects.title}
             </h2>
-            <p className={`text-xl ${themeClasses.textSecondary} max-w-4xl mx-auto leading-relaxed mb-8`}>
+            <p className={`text-lg sm:text-xl ${themeClasses.textSecondary} max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4`}>
               {t.projects.subtitle}
             </p>
           </div>
 
           {/* ColorAdapt Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-3xl`}>
+          <div className={`relative p-6 sm:p-8 lg:p-10 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-5xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-cyan-500/5 to-blue-500/5' : 'bg-gradient-to-br from-cyan-100/50 to-blue-100/50'}`}></div>
-
             <div className="relative z-10">
-              <div className="max-w-4xl">
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-2">
-                  {t.projects.colorAdapt.title}
-                </h3>
-                <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
-                  {t.projects.colorAdapt.subtitle}
-                </p>
-                <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
-                  {t.projects.colorAdapt.description}
-                </p>
-
-                <div className="mb-5">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>{t.projects.colorAdapt.technologies}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {t.projects.colorAdapt.techList.map((tech, index) => (
-                      <span key={index} className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-cyan-300' : 'bg-cyan-50 text-cyan-700'} border ${isDarkTheme ? 'border-cyan-500/30' : 'border-cyan-200'}`}>
-                        {tech}
-                      </span>
-                    ))}
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-500 bg-clip-text text-transparent mb-2">
+                    {t.projects.colorAdapt.title}
+                  </h3>
+                  <p className={`text-lg sm:text-xl ${themeClasses.textSecondary} mb-3`}>
+                    {t.projects.colorAdapt.subtitle}
+                  </p>
+                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-4 sm:mb-5 text-sm sm:text-base`}>
+                    {t.projects.colorAdapt.description}
+                  </p>
+                  <div className="mb-4 sm:mb-5">
+                    <h4 className={`text-base sm:text-lg font-semibold ${themeClasses.text} mb-2 sm:mb-3`}>{t.projects.colorAdapt.technologies}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {t.projects.colorAdapt.techList.map((tech, index) => (
+                        <span key={index} className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-cyan-300' : 'bg-cyan-50 text-cyan-700'} border ${isDarkTheme ? 'border-cyan-500/30' : 'border-cyan-200'}`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                <div className="mt-6 flex justify-center">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 lg:min-w-[200px]">
                   <a
                     href="https://coloradapt.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
                   >
                     {t.projects.colorAdapt.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* GrayTrigger Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-3xl`}>
-            <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-gray-500/5 to-slate-500/5' : 'bg-gradient-to-br from-gray-100/50 to-slate-100/50'}`}></div>
-
-            <div className="relative z-10">
-              <div className="max-w-4xl">
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text text-transparent mb-2">
-                  {t.projects.grayTrigger.title}
-                </h3>
-                <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
-                  {t.projects.grayTrigger.subtitle}
-                </p>
-                <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
-                  {t.projects.grayTrigger.description}
-                </p>
-
-                <div className="mb-5">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>{t.projects.grayTrigger.technologies}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {t.projects.grayTrigger.techList.map((tech, index) => (
-                      <span key={index} className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-gray-300' : 'bg-gray-50 text-gray-700'} border ${isDarkTheme ? 'border-gray-500/30' : 'border-gray-200'}`}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-6 flex justify-center">
                   <a
-                    href="https://graytrigger.com/"
+                    href="https://chrome.google.com/webstore/detail/coloradapt"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25"
                   >
-                    {t.projects.grayTrigger.visitWebsite}
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    {t.projects.colorAdapt.downloadExtension}
+                    <Download className="w-4 h-4 ml-2" />
                   </a>
                 </div>
               </div>
@@ -271,45 +246,49 @@ function App() {
           </div>
 
           {/* MusicAdapt Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-3xl`}>
+          <div className={`relative p-6 sm:p-8 lg:p-10 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-5xl`}>
             <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-indigo-500/5 to-purple-500/5' : 'bg-gradient-to-br from-indigo-100/50 to-purple-100/50'}`}></div>
-
             <div className="relative z-10">
-              <div className="max-w-4xl">
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent mb-2">
-                  MusicAdapt
-                </h3>
-                <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
-                  bring perfect sound everywhere
-                </p>
-                <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
-                  MusicAdapt is an innovative platform for automatic mastering and sound adaptation across devices, genres, and audiences. We combine professional-grade DSP algorithms with an intuitive interface, making premium sound accessible to every musician, producer, or brand.
-                </p>
-
-                <div className="mb-5">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
-                      Web Audio API
-                    </span>
-                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
-                      React
-                    </span>
-                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
-                      Node.js
-                    </span>
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent mb-2">
+                    {t.projects.musicAdapt.title}
+                  </h3>
+                  <p className={`text-lg sm:text-xl ${themeClasses.textSecondary} mb-3`}>
+                    {t.projects.musicAdapt.subtitle}
+                  </p>
+                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-4 sm:mb-5 text-sm sm:text-base`}>
+                    {t.projects.musicAdapt.description}
+                  </p>
+                  <div className="mb-4 sm:mb-5">
+                    <h4 className={`text-base sm:text-lg font-semibold ${themeClasses.text} mb-2 sm:mb-3`}>{t.projects.musicAdapt.technologies}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {t.projects.musicAdapt.techList.map((tech, index) => (
+                        <span key={index} className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-indigo-300' : 'bg-indigo-50 text-indigo-700'} border ${isDarkTheme ? 'border-indigo-500/30' : 'border-indigo-200'}`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                <div className="mt-6 flex justify-center">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 lg:min-w-[200px]">
                   <a
                     href="https://www.musicadapt.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
                   >
-                    Visit Website
+                    {t.projects.musicAdapt.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                  <a
+                    href="https://chrome.google.com/webstore/detail/musicadapt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-400/25"
+                  >
+                    {t.projects.musicAdapt.downloadExtension}
+                    <Download className="w-4 h-4 ml-2" />
                   </a>
                 </div>
               </div>
@@ -317,43 +296,99 @@ function App() {
           </div>
 
           {/* MatrixRain Project */}
-          <div className={`relative p-6 md:p-8 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mx-auto max-w-3xl`}>
-            <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-emerald-500/5 to-slate-900/40' : 'bg-gradient-to-br from-emerald-100/50 to-gray-900/10'}`}></div>
-
+          <div className={`relative p-6 sm:p-8 lg:p-10 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-5xl`}>
+            <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-emerald-500/5 to-teal-500/5' : 'bg-gradient-to-br from-emerald-100/50 to-teal-100/50'}`}></div>
             <div className="relative z-10">
-              <div className="max-w-4xl">
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent mb-2">
-                  MatrixRain
-                </h3>
-                <p className={`text-xl ${themeClasses.textSecondary} mb-4`}>
-                  fullscreen digital rain for your browser
-                </p>
-                <p className={`${themeClasses.textSecondary} leading-relaxed mb-6`}>
-                  MatrixRain — a fullscreen digital rain effect inspired by The Matrix. Bring a stylish cinematic atmosphere to your browser: select from 237 languages and one of 15 preset colors, then enjoy the immersive visuals.
-                </p>
-
-                <div className="mb-5">
-                  <h4 className={`text-lg font-semibold ${themeClasses.text} mb-3`}>Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
-                      HTML5 Canvas
-                    </span>
-                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
-                      TypeScript
-                    </span>
-                    <span className={`px-4 py-2 rounded-lg text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
-                      React
-                    </span>
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent mb-2">
+                    {t.projects.matrixRain.title}
+                  </h3>
+                  <p className={`text-lg sm:text-xl ${themeClasses.textSecondary} mb-3`}>
+                    {t.projects.matrixRain.subtitle}
+                  </p>
+                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-4 sm:mb-5 text-sm sm:text-base`}>
+                    {t.projects.matrixRain.description}
+                  </p>
+                  <div className="mb-4 sm:mb-5">
+                    <h4 className={`text-base sm:text-lg font-semibold ${themeClasses.text} mb-2 sm:mb-3`}>{t.projects.matrixRain.technologies}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {t.projects.matrixRain.techList.map((tech, index) => (
+                        <span key={index} className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-emerald-300' : 'bg-emerald-50 text-emerald-700'} border ${isDarkTheme ? 'border-emerald-500/30' : 'border-emerald-200'}`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                <div className="mt-6 flex justify-center">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 lg:min-w-[200px]">
                   <a
-                    href="#"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
+                    href="https://matrixrain.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
                   >
-                    Coming soon
+                    {t.projects.matrixRain.visitWebsite}
                     <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                  <a
+                    href="https://chrome.google.com/webstore/detail/matrixrain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-400/25"
+                  >
+                    {t.projects.matrixRain.downloadExtension}
+                    <Download className="w-4 h-4 ml-2" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* GrayTrigger Project */}
+          <div className={`relative p-6 sm:p-8 lg:p-10 rounded-3xl ${themeClasses.cardBg} border ${themeClasses.cardBorder} backdrop-blur-sm mb-6 mx-auto max-w-5xl`}>
+            <div className={`absolute inset-0 rounded-3xl ${isDarkTheme ? 'bg-gradient-to-br from-gray-500/5 to-slate-500/5' : 'bg-gradient-to-br from-gray-100/50 to-slate-100/50'}`}></div>
+            <div className="relative z-10">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text text-transparent mb-2">
+                    {t.projects.grayTrigger.title}
+                  </h3>
+                  <p className={`text-lg sm:text-xl ${themeClasses.textSecondary} mb-3`}>
+                    {t.projects.grayTrigger.subtitle}
+                  </p>
+                  <p className={`${themeClasses.textSecondary} leading-relaxed mb-4 sm:mb-5 text-sm sm:text-base`}>
+                    {t.projects.grayTrigger.description}
+                  </p>
+                  <div className="mb-4 sm:mb-5">
+                    <h4 className={`text-base sm:text-lg font-semibold ${themeClasses.text} mb-2 sm:mb-3`}>{t.projects.grayTrigger.technologies}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {t.projects.grayTrigger.techList.map((tech, index) => (
+                        <span key={index} className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium ${isDarkTheme ? 'bg-slate-700/50 text-gray-300' : 'bg-gray-50 text-gray-700'} border ${isDarkTheme ? 'border-gray-500/30' : 'border-gray-200'}`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 lg:min-w-[200px]">
+                  <a
+                    href="https://graytrigger.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25"
+                  >
+                    {t.projects.grayTrigger.visitWebsite}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                  <a
+                    href="https://chrome.google.com/webstore/detail/graytrigger"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-gray-400 to-slate-500 rounded-lg font-semibold text-white text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-400/25"
+                  >
+                    {t.projects.grayTrigger.downloadExtension}
+                    <Download className="w-4 h-4 ml-2" />
                   </a>
                 </div>
               </div>
@@ -454,7 +489,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <p className={`${isDarkTheme ? 'text-gray-400' : 'text-gray-600'} text-sm`}>
-              © 2025 PetrovskiLabs – Founded by Yuri Petrovski
+              {t.footer.copyright}
             </p>
           </div>
         </div>

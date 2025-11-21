@@ -8,9 +8,9 @@ interface DonationBlockProps {
 
 const donationTexts = {
   en: {
-    title: "Support PetrovskiLabs Development",
-    subtitle: "Help us bring better visual comfort to everyone",
-    description: "Your support helps us create new privacy‑first, accessibility‑focused tools at PetrovskiLabs.",
+    title: "Support PetrovskiStudio Development",
+    subtitle: "Help us bring a better future for everyone",
+    description: "Brave New World",
     amounts: ["Buy me a coffee", "Support development", "Premium support", "Custom amount"],
     thankYou: "Thank you for your support! 💜",
     thankYouMessage: "Your contribution helps make ColorAdapt better for everyone!",
@@ -18,127 +18,6 @@ const donationTexts = {
     enterAmount: "Enter amount",
     donateButton: "Donate"
   },
-  ru: {
-    title: "Поддержите разработку ColorAdapt",
-    subtitle: "Помогите нам создавать лучший визуальный комфорт для всех",
-    description: "Ваша поддержка помогает нам продолжать разработку ColorAdapt и добавлять новые функции для визуальной доступности.",
-    amounts: ["Купить кофе", "Поддержать разработку", "Премиум поддержка", "Своя сумма"],
-    thankYou: "Спасибо за вашу поддержку! 💜",
-    thankYouMessage: "Ваш вклад помогает сделать ColorAdapt лучше для всех!",
-    poweredBy: "При поддержке PayPal",
-    enterAmount: "Введите сумму",
-    donateButton: "Поддержать"
-  },
-  es: {
-    title: "Apoya el desarrollo de ColorAdapt",
-    subtitle: "Ayúdanos a brindar mejor comodidad visual para todos",
-    description: "Tu apoyo nos ayuda a continuar desarrollando ColorAdapt y agregando nuevas funciones para la accesibilidad visual.",
-    amounts: ["Cómprame un café", "Apoyar desarrollo", "Soporte premium", "Cantidad personalizada"],
-    thankYou: "¡Gracias por tu apoyo! 💜",
-    thankYouMessage: "¡Tu contribución ayuda a hacer ColorAdapt mejor para todos!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Ingrese cantidad",
-    donateButton: "Donar"
-  },
-  fr: {
-    title: "Soutenez le développement de ColorAdapt",
-    subtitle: "Aidez-nous à apporter un meilleur confort visuel à tous",
-    description: "Votre soutien nous aide à continuer le développement de ColorAdapt et à ajouter de nouvelles fonctionnalités pour l'accessibilité visuelle.",
-    amounts: ["Offrez-moi un café", "Soutenir le développement", "Support premium", "Montant personnalisé"],
-    thankYou: "Merci pour votre soutien ! 💜",
-    thankYouMessage: "Votre contribution aide à améliorer ColorAdapt pour tous !",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Entrez le montant",
-    donateButton: "Faire un don"
-  },
-  de: {
-    title: "Unterstützen Sie die ColorAdapt-Entwicklung",
-    subtitle: "Helfen Sie uns, besseren visuellen Komfort für alle zu schaffen",
-    description: "Ihre Unterstützung hilft uns, ColorAdapt weiterzuentwickeln und neue Funktionen für visuelle Barrierefreiheit hinzuzufügen.",
-    amounts: ["Kaufen Sie mir einen Kaffee", "Entwicklung unterstützen", "Premium-Support", "Benutzerdefinierter Betrag"],
-    thankYou: "Vielen Dank für Ihre Unterstützung! 💜",
-    thankYouMessage: "Ihr Beitrag hilft, ColorAdapt für alle besser zu machen!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Betrag eingeben",
-    donateButton: "Spenden"
-  },
-  ja: {
-    title: "ColorAdapt開発をサポート",
-    subtitle: "皆様により良い視覚的快適性を提供するためにご協力ください",
-    description: "あなたのサポートは、ColorAdaptの開発を継続し、視覚的アクセシビリティのための新機能を追加するのに役立ちます。",
-    amounts: ["コーヒーをおごる", "開発をサポート", "プレミアムサポート", "カスタム金額"],
-    thankYou: "ご支援ありがとうございます！💜",
-    thankYouMessage: "あなたの貢献はColorAdaptをみんなのためにより良くします！",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "金額を入力",
-    donateButton: "寄付する"
-  },
-  ar: {
-    title: "دعم تطوير ColorAdapt",
-    subtitle: "ساعدنا في توفير راحة بصرية أفضل للجميع",
-    description: "دعمك يساعدنا على مواصلة تطوير ColorAdapt وإضافة ميزات جديدة لإمكانية الوصول البصري.",
-    amounts: ["اشتر لي قهوة", "دعم التطوير", "دعم مميز", "مبلغ مخصص"],
-    thankYou: "شكرا لدعمك! 💜",
-    thankYouMessage: "مساهمتك تساعد في جعل ColorAdapt أفضل للجميع!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "أدخل المبلغ",
-    donateButton: "تبرع"
-  },
-  hi: {
-    title: "ColorAdapt विकास का समर्थन करें",
-    subtitle: "हमें सभी के लिए बेहतर दृश्य आराम लाने में मदद करें",
-    description: "आपका समर्थन हमें ColorAdapt का विकास जारी रखने और दृश्य पहुंच के लिए नई सुविधाएं जोड़ने में मदद करता है।",
-    amounts: ["मुझे कॉफी खरीदें", "विकास का समर्थन करें", "प्रीमियम समर्थन", "कस्टम राशि"],
-    thankYou: "आपके समर्थन के लिए धन्यवाद! 💜",
-    thankYouMessage: "आपका योगदान सभी के लिए ColorAdapt को बेहतर बनाने में मदद करता है!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "राशि दर्ज करें",
-    donateButton: "दान करें"
-  },
-  it: {
-    title: "Sostieni lo sviluppo di ColorAdapt",
-    subtitle: "Aiutaci a portare un migliore comfort visivo a tutti",
-    description: "Il tuo supporto ci aiuta a continuare a sviluppare ColorAdapt e ad aggiungere nuove funzionalità per l'accessibilità visiva.",
-    amounts: ["Offrimi un caffè", "Sostieni lo sviluppo", "Supporto premium", "Importo personalizzato"],
-    thankYou: "Grazie per il tuo supporto! 💜",
-    thankYouMessage: "Il tuo contributo aiuta a rendere ColorAdapt migliore per tutti!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Inserisci importo",
-    donateButton: "Dona"
-  },
-  zh: {
-    title: "支持 ColorAdapt 开发",
-    subtitle: "帮助我们为所有人带来更好的视觉舒适度",
-    description: "您的支持帮助我们继续开发 ColorAdapt 并为视觉可访问性添加新功能。",
-    amounts: ["请我喝咖啡", "支持开发", "高级支持", "自定义金额"],
-    thankYou: "感谢您的支持！💜",
-    thankYouMessage: "您的贡献帮助 ColorAdapt 为所有人变得更好！",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "输入金额",
-    donateButton: "捐赠"
-  },
-  tr: {
-    title: "ColorAdapt Geliştirmesini Destekleyin",
-    subtitle: "Herkese daha iyi görsel konfor getirmemize yardımcı olun",
-    description: "Desteğiniz ColorAdapt'i geliştirmeye devam etmemize ve görsel erişilebilirlik için yeni özellikler eklememize yardımcı oluyor.",
-    amounts: ["Bana bir kahve ısmarla", "Geliştirmeyi destekle", "Premium destek", "Özel miktar"],
-    thankYou: "Desteğiniz için teşekkürler! 💜",
-    thankYouMessage: "Katkınız ColorAdapt'i herkes için daha iyi hale getirmeye yardımcı oluyor!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "Miktar girin",
-    donateButton: "Bağış yap"
-  },
-  ko: {
-    title: "ColorAdapt 개발 지원",
-    subtitle: "모든 사람에게 더 나은 시각적 편안함을 제공하는 데 도움을 주세요",
-    description: "귀하의 지원은 ColorAdapt를 계속 개발하고 시각적 접근성을 위한 새로운 기능을 추가하는 데 도움이 됩니다.",
-    amounts: ["커피 사주기", "개발 지원", "프리미엄 지원", "사용자 지정 금액"],
-    thankYou: "지원해 주셔서 감사합니다! 💜",
-    thankYouMessage: "귀하의 기여는 모든 사람을 위해 ColorAdapt를 더 좋게 만드는 데 도움이 됩니다!",
-    poweredBy: "Powered by PayPal",
-    enterAmount: "금액 입력",
-    donateButton: "기부하기"
-  }
 };
 
 export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLanguage }) => {
@@ -146,7 +25,7 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
   const [customAmount, setCustomAmount] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
 
-  const t = donationTexts[currentLanguage as keyof typeof donationTexts] || donationTexts.en;
+  const t = donationTexts.en;
   
   const predefinedAmounts = [
     { amount: 3, icon: Coffee, label: t.amounts[0], color: 'from-amber-500 to-orange-500' },
@@ -171,7 +50,7 @@ export const DonationBlock: React.FC<DonationBlockProps> = ({ isDark, currentLan
     const finalAmount = amount === 0 ? parseFloat(customAmount) || 5 : amount;
     
     // PayPal donation URL using email address
-    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent('hoper_Jay@i.ua')}&amount=${finalAmount}&currency_code=USD&item_name=${encodeURIComponent('ColorAdapt Development Support')}&no_note=0&cn=${encodeURIComponent('Message for developer (optional)')}&no_shipping=1&return=${encodeURIComponent('https://coloradapt-visual-co-cab6.bolt.host')}&cancel_return=${encodeURIComponent('https://coloradapt-visual-co-cab6.bolt.host')}`;
+    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent('hoper_Jay@i.ua')}&amount=${finalAmount}&currency_code=USD&item_name=${encodeURIComponent('PetrovskiStudio Development Support')}&no_note=0&cn=${encodeURIComponent('Message for developer (optional)')}&no_shipping=1&return=${encodeURIComponent('https://coloradapt-visual-co-cab6.bolt.host')}&cancel_return=${encodeURIComponent('https://coloradapt-visual-co-cab6.bolt.host')}`;
     
     // Show thank you message and open PayPal
     setShowThankYou(true);
