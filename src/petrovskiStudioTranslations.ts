@@ -2038,3 +2038,255 @@ Object.assign(petrovskiStudioTranslations, remainingTranslations);
 
 export type Language = keyof typeof petrovskiStudioTranslations;
 export type TranslationKey = keyof typeof petrovskiStudioTranslations.en;
+
+export type CryptoForecasterCopy = {
+  title: string;
+  subtitle: string;
+  description: string;
+  techList: string[];
+  visitWebsite: string;
+  downloadExtension: string;
+};
+
+export const cryptoForecasterTranslations: Record<Language, CryptoForecasterCopy> = {
+  en: {
+    title: "CryptoForecaster",
+    subtitle: "AI-powered cryptocurrency forecasting.",
+    description: "AI-powered cryptocurrency price forecasting using TensorFlow.js. Predict future prices for top crypto assets with advanced machine learning models. Turn volatility into vision. Transform uncertainty into opportunity with predictive intelligence.",
+    techList: ["TensorFlow.js", "AI Forecaster", "Investing", "Machine Learning", "Predictive Analytics"],
+    visitWebsite: petrovskiStudioTranslations.en.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.en.projects.colorAdapt.downloadExtension
+  },
+  es: {
+    title: "CryptoForecaster",
+    subtitle: "Pronóstico de criptomonedas impulsado por IA.",
+    description: "Pronósticos de precios de criptomonedas con TensorFlow.js. Anticipa los precios futuros de los principales criptoactivos con modelos avanzados de aprendizaje automático. Convierte la volatilidad en visión. Transforma la incertidumbre en oportunidad con inteligencia predictiva.",
+    techList: ["TensorFlow.js", "Predictor de IA", "Inversión", "Aprendizaje automático", "Analítica predictiva"],
+    visitWebsite: petrovskiStudioTranslations.es.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.es.projects.colorAdapt.downloadExtension
+  },
+  zh: {
+    title: "CryptoForecaster",
+    subtitle: "AI 驱动的加密货币预测。",
+    description: "借助 TensorFlow.js 实现 AI 驱动的加密货币价格预测。使用先进的机器学习模型预测顶级加密资产的未来价格。将波动性化作洞察。用预测智能把不确定性转化为机会。",
+    techList: ["TensorFlow.js", "AI 预测引擎", "投资", "机器学习", "预测分析"],
+    visitWebsite: petrovskiStudioTranslations.zh.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.zh.projects.colorAdapt.downloadExtension
+  },
+  hi: {
+    title: "CryptoForecaster",
+    subtitle: "एआई संचालित क्रिप्टोकरेंसी पूर्वानुमान।",
+    description: "TensorFlow.js के साथ एआई आधारित क्रिप्टोकरेंसी मूल्य पूर्वानुमान। उन्नत मशीन लर्निंग मॉडलों से शीर्ष क्रिप्टो परिसंपत्तियों के भविष्य मूल्य का अनुमान लगाएँ। अस्थिरता को दृष्टि में बदलें। भविष्यसूचक बुद्धिमत्ता के साथ अनिश्चितता को अवसर में बदलें।",
+    techList: ["TensorFlow.js", "एआई पूर्वानुमानक", "निवेश", "मशीन लर्निंग", "पूर्वानुमान विश्लेषण"],
+    visitWebsite: petrovskiStudioTranslations.hi.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.hi.projects.colorAdapt.downloadExtension
+  },
+  ar: {
+    title: "CryptoForecaster",
+    subtitle: "توقعات للعملات المشفّرة مدعومة بالذكاء الاصطناعي.",
+    description: "تنبؤ بأسعار العملات المشفّرة باستخدام TensorFlow.js. توقّع الأسعار المستقبلية لأهم الأصول الرقمية عبر نماذج متقدّمة للتعلّم الآلي. حوّل التقلب إلى رؤية. حوّل عدم اليقين إلى فرصة بفضل الذكاء التنبؤي.",
+    techList: ["TensorFlow.js", "متنبئ بالذكاء الاصطناعي", "الاستثمار", "تعلّم الآلة", "تحليلات تنبؤية"],
+    visitWebsite: petrovskiStudioTranslations.ar.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.ar.projects.colorAdapt.downloadExtension
+  },
+  pt: {
+    title: "CryptoForecaster",
+    subtitle: "Previsão de criptomoedas com IA.",
+    description: "Previsão de preços de criptomoedas alimentada por IA usando TensorFlow.js. Antecipe os valores futuros dos principais criptoativos com modelos avançados de machine learning. Transforme volatilidade em visão. Converta incerteza em oportunidade com inteligência preditiva.",
+    techList: ["TensorFlow.js", "Previsor de IA", "Investimentos", "Aprendizado de máquina", "Análises preditivas"],
+    visitWebsite: petrovskiStudioTranslations.pt.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.pt.projects.colorAdapt.downloadExtension
+  },
+  bn: {
+    title: "CryptoForecaster",
+    subtitle: "এআই চালিত ক্রিপ্টোকারেন্সি পূর্বাভাস।",
+    description: "TensorFlow.js ব্যবহার করে এআই-চালিত ক্রিপ্টোকারেন্সি দামের পূর্বাভাস। উন্নত মেশিন লার্নিং মডেলের মাধ্যমে শীর্ষ ক্রিপ্টো সম্পদের ভবিষ্যৎ মূল্য অনুমান করুন। অস্থিরতাকে দৃষ্টিভঙ্গিতে রূপান্তর করুন। পূর্বাভাসমূলক বুদ্ধিমত্তায় অনিশ্চয়তাকে সুযোগে পরিণত করুন।",
+    techList: ["TensorFlow.js", "এআই পূর্বাভাসক", "বিনিয়োগ", "মেশিন লার্নিং", "পূর্বাভাস বিশ্লেষণ"],
+    visitWebsite: petrovskiStudioTranslations.bn.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.bn.projects.colorAdapt.downloadExtension
+  },
+  ru: {
+    title: "CryptoForecaster",
+    subtitle: "Прогноз криптовалют на базе ИИ.",
+    description: "Прогнозируйте цены криптовалют с помощью TensorFlow.js и ИИ. Используйте продвинутые модели машинного обучения, чтобы предсказывать будущую стоимость топовых криптоактивов. Превратите волатильность в видение. Преобразуйте неопределённость в возможность благодаря предиктивному интеллекту.",
+    techList: ["TensorFlow.js", "ИИ-прогнозатор", "Инвестирование", "Машинное обучение", "Предиктивная аналитика"],
+    visitWebsite: petrovskiStudioTranslations.ru.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.ru.projects.colorAdapt.downloadExtension
+  },
+  ja: {
+    title: "CryptoForecaster",
+    subtitle: "AI 搭載の暗号資産予測。",
+    description: "TensorFlow.js を用いた AI 駆動の暗号資産価格予測。高度な機械学習モデルで主要暗号資産の将来価格を見極めます。ボラティリティを洞察に変え、不確実性を予測インテリジェンスで機会へ変革します。",
+    techList: ["TensorFlow.js", "AI 予測エンジン", "投資", "機械学習", "予測分析"],
+    visitWebsite: petrovskiStudioTranslations.ja.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.ja.projects.colorAdapt.downloadExtension
+  },
+  pa: {
+    title: "CryptoForecaster",
+    subtitle: "ਏਆਈ ਸੰਚਾਲਿਤ ਕ੍ਰਿਪਟੋ ਅਨੁਮਾਨ।",
+    description: "TensorFlow.js ਨਾਲ AI ਅਧਾਰਿਤ ਕ੍ਰਿਪਟੋਕਰੰਸੀ ਕੀਮਤ ਅਨੁਮਾਨ। ਉন্নਤ ਮਸ਼ੀਨ ਲਰਨਿੰਗ ਮਾਡਲਾਂ ਨਾਲ ਪ੍ਰਮੁੱਖ ਕ੍ਰਿਪਟੋ ਐਸੈੱਟਾਂ ਦੀ ਭਵਿੱਖ ਕੀਮਤ ਭਵਿੱਖਬਾਣੀ ਕਰੋ। ਅਸਥਿਰਤਾ ਨੂੰ ਦ੍ਰਿਸ਼ਟੀ ਵਿੱਚ ਬਦਲੋ। ਭਵਿੱਖਬਾਣੀ ਬੁੱਧੀ ਨਾਲ ਅਣਨਿਸ਼ਚিতਤਾ ਨੂੰ ਮੌਕੇ ਵਿੱਚ ਬਦਲੋ।",
+    techList: ["TensorFlow.js", "ਏਆਈ ਫੋਰਕਾਸਟਰ", "ਨਿਵੇਸ਼", "ਮਸ਼ੀਨ ਲਰਨਿੰਗ", "ਪ੍ਰਡਿਕਟਿਵ ਵਿਸ਼ਲੇਸ਼ਣ"],
+    visitWebsite: petrovskiStudioTranslations.pa.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.pa.projects.colorAdapt.downloadExtension
+  },
+  de: {
+    title: "CryptoForecaster",
+    subtitle: "KI-gestützte Krypto-Prognosen.",
+    description: "KI-gestützte Kursprognosen für Kryptowährungen mit TensorFlow.js. Sage die zukünftigen Preise führender Krypto-Assets mit fortgeschrittenen Machine-Learning-Modellen voraus. Verwandle Volatilität in Vision. Mach Unsicherheit durch prädiktive Intelligenz zur Chance.",
+    techList: ["TensorFlow.js", "KI-Vorhersage", "Investieren", "Maschinelles Lernen", "Prädiktive Analytik"],
+    visitWebsite: petrovskiStudioTranslations.de.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.de.projects.colorAdapt.downloadExtension
+  },
+  jv: {
+    title: "CryptoForecaster",
+    subtitle: "Ramalan kripto nganggo AI.",
+    description: "Ramalan rega cryptocurrency sing didhukung AI nganggo TensorFlow.js. Prediksi rega masa depan aset kripto paling apik nganggo model pembelajaran mesin tingkat lanjut. Ganti volatilitas dadi visi. Owahi ketidakpastian dadi kesempatan nganggo intelijen prediktif.",
+    techList: ["TensorFlow.js", "Peramal AI", "Investasi", "Pangajaran mesin", "Analitik prediktif"],
+    visitWebsite: petrovskiStudioTranslations.jv.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.jv.projects.colorAdapt.downloadExtension
+  },
+  ko: {
+    title: "CryptoForecaster",
+    subtitle: "AI 기반 암호화폐 예측.",
+    description: "TensorFlow.js를 활용한 AI 기반 암호화폐 가격 예측. 고급 머신러닝 모델로 주요 암호화 자산의 미래 가격을 전망하세요. 변동성을 통찰로 전환하고 예측형 인텔리전스로 불확실성을 기회로 바꾸세요.",
+    techList: ["TensorFlow.js", "AI 예측기", "투자", "머신러닝", "예측 분석"],
+    visitWebsite: petrovskiStudioTranslations.ko.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.ko.projects.colorAdapt.downloadExtension
+  },
+  fr: {
+    title: "CryptoForecaster",
+    subtitle: "Prévision crypto pilotée par l'IA.",
+    description: "Prévision des prix des cryptomonnaies avec TensorFlow.js et l’IA. Anticipez les valeurs futures des principaux crypto-actifs grâce à des modèles avancés de machine learning. Transformez la volatilité en vision. Convertissez l’incertitude en opportunité grâce à l’intelligence prédictive.",
+    techList: ["TensorFlow.js", "Prédicteur IA", "Investissement", "Apprentissage automatique", "Analytique prédictive"],
+    visitWebsite: petrovskiStudioTranslations.fr.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.fr.projects.colorAdapt.downloadExtension
+  },
+  te: {
+    title: "CryptoForecaster",
+    subtitle: "ఏఐ ఆధారిత క్రిప్టో అంచనా.",
+    description: "TensorFlow.js తో ఏఐ ఆధారిత క్రిప్టోకరెన్సీ ధర అంచనా. అభివృద్ధి చెందిన మెషీన్ లెర్నింగ్ మోడళ్లతో ప్రముఖ క్రిప్టో ఆస్తుల భవిష్యత్ ధరలను ఊహించండి. అస్థిరతను దృష్టిగా మార్చండి. భవిష్యద్వాణి మేధస్సుతో అనిశ్చితిని అవకాశంగా మలచండి.",
+    techList: ["TensorFlow.js", "ఏఐ ఫోరకాస్టర్", "పెట్టుబడి", "మెషీన్ లెర్నింగ్", "పూర్వానుమాన విశ్లేషణ"],
+    visitWebsite: petrovskiStudioTranslations.te.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.te.projects.colorAdapt.downloadExtension
+  },
+  tr: {
+    title: "CryptoForecaster",
+    subtitle: "Yapay zekâ destekli kripto tahmini.",
+    description: "TensorFlow.js ile yapay zekâ destekli kripto para fiyat tahmini. Gelişmiş makine öğrenimi modelleriyle önde gelen kripto varlıkların gelecekteki fiyatlarını öngörün. Dalgalanmayı vizyona dönüştürün. Öngörücü zekâ sayesinde belirsizliği fırsata çevirin.",
+    techList: ["TensorFlow.js", "YZ Tahmincisi", "Yatırım", "Makine öğrenimi", "Öngörücü analitik"],
+    visitWebsite: petrovskiStudioTranslations.tr.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.tr.projects.colorAdapt.downloadExtension
+  },
+  vi: {
+    title: "CryptoForecaster",
+    subtitle: "Dự báo tiền mã hóa bằng AI.",
+    description: "Dự báo giá tiền mã hóa dựa trên AI với TensorFlow.js. Ước tính giá tương lai của các tài sản crypto hàng đầu bằng những mô hình học máy tiên tiến. Biến biến động thành tầm nhìn. Biến bất định thành cơ hội với trí tuệ dự đoán.",
+    techList: ["TensorFlow.js", "Bộ dự báo AI", "Đầu tư", "Học máy", "Phân tích dự đoán"],
+    visitWebsite: petrovskiStudioTranslations.vi.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.vi.projects.colorAdapt.downloadExtension
+  },
+  it: {
+    title: "CryptoForecaster",
+    subtitle: "Previsioni cripto basate sull'IA.",
+    description: "Previsioni dei prezzi delle criptovalute alimentate dall'IA con TensorFlow.js. Anticipa i valori futuri dei principali asset cripto grazie a modelli avanzati di machine learning. Trasforma la volatilità in visione. Trasforma l'incertezza in opportunità con l'intelligenza predittiva.",
+    techList: ["TensorFlow.js", "Previsore IA", "Investimenti", "Machine learning", "Analitica predittiva"],
+    visitWebsite: petrovskiStudioTranslations.it.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.it.projects.colorAdapt.downloadExtension
+  },
+  th: {
+    title: "CryptoForecaster",
+    subtitle: "การพยากรณ์คริปโตด้วย AI.",
+    description: "การคาดการณ์ราคาสกุลเงินดิจิทัลด้วย TensorFlow.js และ AI ทำนายราคาล่วงหน้าของสินทรัพย์คริปโตชั้นนำด้วยโมเดลแมชชีนเลิร์นนิงขั้นสูง เปลี่ยนความผันผวนให้เป็นวิสัยทัศน์ และเปลี่ยนความไม่แน่นอนให้เป็นโอกาสด้วยปัญญาเชิงคาดการณ์.",
+    techList: ["TensorFlow.js", "ตัวพยากรณ์ AI", "การลงทุน", "แมชชีนเลิร์นนิง", "การวิเคราะห์เชิงคาดการณ์"],
+    visitWebsite: petrovskiStudioTranslations.th.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.th.projects.colorAdapt.downloadExtension
+  },
+  uk: {
+    title: "CryptoForecaster",
+    subtitle: "AI-прогнозування криптовалют.",
+    description: "AI-прогнозування цін на криптовалюти з TensorFlow.js. Передбачайте майбутню вартість провідних криптоактивів за допомогою просунутих моделей машинного навчання. Перетворюйте волатильність на бачення. Змінюйте невизначеність на можливість завдяки предиктивному інтелекту.",
+    techList: ["TensorFlow.js", "AI-прогнозатор", "Інвестиції", "Машинне навчання", "Предиктивна аналітика"],
+    visitWebsite: petrovskiStudioTranslations.uk.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.uk.projects.colorAdapt.downloadExtension
+  },
+  my: {
+    title: "CryptoForecaster",
+    subtitle: "AI ဖြင့် အားပေးထားသော ကရစ်ပတိုခန့်မှန်းခြင်း။",
+    description: "TensorFlow.js ကိုအသုံးပြုပြီး AI အခြေပြု ကရစ်ပတို ဈေးနှုန်းခန့်မှန်းချက်။ အဆင့်မြင့် မေးရှင်းလေ့လာမှု မော်ဒယ်များဖြင့် ထိပ်တန်း ကရစ်ပတို အမျိုးအစားများ၏ အနာဂတ်ဈေးကိုတွက်ချက်ပါ။ အပြောင်းအလဲကို အမြင်အဖြစ် ပြောင်းလဲပါ။ ကြိုတင်ခန့်မှန်းနိုင်သော ဉာဏ်ရည်ဖြင့် မသေချာမှုကို အခွင့်အလမ်းအဖြစ် ပြောင်းပါ။",
+    techList: ["TensorFlow.js", "AI ခန့်မှန်းကိရိယာ", "ရင်းနှီးမြှုပ်နှံမှု", "မေးရှင်းလေ့လာမှု", "ကြိုတင်ခန့်မှန်း ခွဲခြမ်းစိတ်ဖြာ"],
+    visitWebsite: petrovskiStudioTranslations.my.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.my.projects.colorAdapt.downloadExtension
+  },
+  id: {
+    title: "CryptoForecaster",
+    subtitle: "Peramalan kripto berbasis AI.",
+    description: "Peramalan harga kripto berbasis AI dengan TensorFlow.js. Prediksi harga masa depan aset kripto teratas menggunakan model machine learning tingkat lanjut. Ubah volatilitas menjadi visi. Jadikan ketidakpastian sebagai peluang lewat intelijen prediktif.",
+    techList: ["TensorFlow.js", "Peramal AI", "Investasi", "Machine learning", "Analitik prediktif"],
+    visitWebsite: petrovskiStudioTranslations.id.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.id.projects.colorAdapt.downloadExtension
+  },
+  nl: {
+    title: "CryptoForecaster",
+    subtitle: "AI-gestuurde crypto-voorspellingen.",
+    description: "AI-gestuurde prijsvoorspellingen voor cryptovaluta met TensorFlow.js. Voorzie de toekomstige waarde van toonaangevende crypto-assets met geavanceerde machine-learningmodellen. Maak van volatiliteit een visie. Zet onzekerheid om in kansen met voorspellende intelligentie.",
+    techList: ["TensorFlow.js", "AI-voorspeller", "Beleggen", "Machine learning", "Voorspellende analyse"],
+    visitWebsite: petrovskiStudioTranslations.nl.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.nl.projects.colorAdapt.downloadExtension
+  },
+  sv: {
+    title: "CryptoForecaster",
+    subtitle: "AI-drivna kryptoprognoser.",
+    description: "AI-drivna prisprognoser för kryptovalutor med TensorFlow.js. Förutse framtida värden för ledande kryptoaktiver med avancerade maskininlärningsmodeller. Förvandla volatilitet till vision. Gör osäkerhet till möjligheter med prediktiv intelligens.",
+    techList: ["TensorFlow.js", "AI-förutsägare", "Investering", "Maskininlärning", "Prediktiv analys"],
+    visitWebsite: petrovskiStudioTranslations.sv.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.sv.projects.colorAdapt.downloadExtension
+  },
+  pl: {
+    title: "CryptoForecaster",
+    subtitle: "Prognozy kryptowalut oparte na AI.",
+    description: "Prognozowanie cen kryptowalut przy użyciu TensorFlow.js i sztucznej inteligencji. Przewiduj przyszłe wartości czołowych aktywów krypto dzięki zaawansowanym modelom uczenia maszynowego. Zamień zmienność w wizję. Przekuj niepewność w szansę dzięki inteligencji predykcyjnej.",
+    techList: ["TensorFlow.js", "Prognozator AI", "Inwestowanie", "Uczenie maszynowe", "Analityka predykcyjna"],
+    visitWebsite: petrovskiStudioTranslations.pl.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.pl.projects.colorAdapt.downloadExtension
+  },
+  ro: {
+    title: "CryptoForecaster",
+    subtitle: "Previziuni cripto bazate pe AI.",
+    description: "Previziuni de preț pentru criptomonede cu TensorFlow.js alimentate de inteligență artificială. Anticipează valorile viitoare ale principalelor active cripto folosind modele avansate de machine learning. Transformă volatilitatea în viziune. Transformă incertitudinea în oportunitate cu inteligența predictivă.",
+    techList: ["TensorFlow.js", "Predictor AI", "Investiții", "Machine learning", "Analitică predictivă"],
+    visitWebsite: petrovskiStudioTranslations.ro.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.ro.projects.colorAdapt.downloadExtension
+  },
+  hu: {
+    title: "CryptoForecaster",
+    subtitle: "AI-alapú kripto-előrejelzések.",
+    description: "AI-val támogatott kriptovaluta árfolyam-előrejelzés TensorFlow.js segítségével. Jósolja meg a vezető kriptoeszközök jövőbeni értékét fejlett gépi tanulási modellekkel. Alakítsa a volatilitást vízióvá. Változtassa a bizonytalanságot lehetőséggé prediktív intelligenciával.",
+    techList: ["TensorFlow.js", "AI-előrejelző", "Befektetés", "Gépi tanulás", "Prediktív analitika"],
+    visitWebsite: petrovskiStudioTranslations.hu.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.hu.projects.colorAdapt.downloadExtension
+  },
+  cs: {
+    title: "CryptoForecaster",
+    subtitle: "Kryptopředpovědi poháněné AI.",
+    description: "Předpovídejte ceny kryptoměn pomocí TensorFlow.js a umělé inteligence. Odhadujte budoucí hodnoty předních kryptoaktiv se špičkovými modely strojového učení. Přetvořte volatilitu ve vizi. Proměňte nejistotu v příležitost díky prediktivní inteligenci.",
+    techList: ["TensorFlow.js", "AI předpovídač", "Investice", "Strojové učení", "Prediktivní analytika"],
+    visitWebsite: petrovskiStudioTranslations.cs.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.cs.projects.colorAdapt.downloadExtension
+  },
+  el: {
+    title: "CryptoForecaster",
+    subtitle: "Προβλέψεις κρυπτονομισμάτων με AI.",
+    description: "Προβλέψτε τις τιμές των κρυπτονομισμάτων με το TensorFlow.js και τεχνητή νοημοσύνη. Εκτιμήστε τις μελλοντικές αξίες κορυφαίων crypto assets με προηγμένα μοντέλα machine learning. Μετατρέψτε τη μεταβλητότητα σε όραμα. Κάντε την αβεβαιότητα ευκαιρία μέσω προγνωστικής ευφυΐας.",
+    techList: ["TensorFlow.js", "Προβλεπτικό AI", "Επενδύσεις", "Μηχανική μάθηση", "Προγνωστική ανάλυση"],
+    visitWebsite: petrovskiStudioTranslations.el.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.el.projects.colorAdapt.downloadExtension
+  },
+  he: {
+    title: "CryptoForecaster",
+    subtitle: "חיזוי מטבעות קריפטו בעזרת בינה מלאכותית.",
+    description: "חזו מחירי מטבעות קריפטו בעזרת TensorFlow.js ובינה מלאכותית. חזו את הערכים העתידיים של נכסי הקריפטו המובילים באמצעות מודלים מתקדמים של למידת מכונה. הפכו תנודתיות לתובנה. הפכו אי-ודאות להזדמנות בעזרת אינטליגנציה חיזויית.",
+    techList: ["TensorFlow.js", "חזאי בינה מלאכותית", "השקעות", "למידת מכונה", "אנליטיקה חיזויית"],
+    visitWebsite: petrovskiStudioTranslations.he.projects.colorAdapt.visitWebsite,
+    downloadExtension: petrovskiStudioTranslations.he.projects.colorAdapt.downloadExtension
+  }
+};
